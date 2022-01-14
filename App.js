@@ -10,6 +10,7 @@ import { fetchData } from "./src/helpers/fetchData";
 import LoginScreen from "./src/screens/Login";
 import * as dbRegulation from "./src/helpers/dbRegulation";
 import RegulationReading from "./src/screens/regulation/RegulationReadingScreen";
+import MilitaryHome from "./src/screens/militaryRule/Home";
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +42,7 @@ export default function App() {
         <Stack.Screen name="home" component={HomeScreen} />
         <Stack.Screen name="regulationHome" component={RegulationHome} />
         <Stack.Screen name="regulationReading" component={RegulationReading} />
+        <Stack.Screen name="MilitaryHome" component={MilitaryHome} />
       </Stack.Navigator>
     </NavigationContainer>
   );

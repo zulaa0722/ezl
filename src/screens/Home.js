@@ -48,7 +48,12 @@ const Home = (props) => {
             <Text style={home_styles.text}>Дүрэм, журам, бусад</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={home_styles.touchStyle}>
+          <TouchableOpacity
+            style={home_styles.touchStyle}
+            onPress={() => {
+              props.navigation.navigate("MilitaryHome");
+            }}
+          >
             <Text style={home_styles.text}>Цэргийн дүрэм</Text>
           </TouchableOpacity>
           <View
