@@ -12,6 +12,9 @@ import * as dbRegulation from "./src/helpers/dbRegulation";
 import RegulationReading from "./src/screens/regulation/RegulationReadingScreen";
 import MilitaryHome from "./src/screens/militaryRule/Home";
 
+// Цэргийн дүрэм components
+import TestYourself from "./src/screens/militaryRule/TestYourself/TestYourselfScreen";
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -43,6 +46,7 @@ export default function App() {
         <Stack.Screen name="regulationHome" component={RegulationHome} />
         <Stack.Screen name="regulationReading" component={RegulationReading} />
         <Stack.Screen name="MilitaryHome" component={MilitaryHome} />
+        <Stack.Screen name="TestYourself" component={TestYourself} />
       </Stack.Navigator>
     </NavigationContainer>
   );

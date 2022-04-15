@@ -1,63 +1,62 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
-import AppIntroSlider from "react-native-app-intro-slider";
+import React from "react";
+import {
+  ImageBackground,
+  TouchableOpacity,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
-const slides = [
-  {
-    key: 1,
-    title: "Title 1",
-    text: "Description.\nSay something cool",
-    image: "./assets/1.jpg",
-    backgroundColor: "#59b2ab",
-  },
-  {
-    key: 2,
-    title: "Title 2",
-    text: "Other cool stuff",
-    image: "./assets/2.jpg",
-    backgroundColor: "#febe29",
-  },
-  {
-    key: 3,
-    title: "Rocket guy",
-    text: "I'm already out of descriptions\n\nLorem ipsum bla bla bla",
-    image: "./assets/3.jpg",
-    backgroundColor: "#22bcb5",
-  },
-];
-
-export default function Home() {
-  const [showRealApp, setShowRealApp] = useState(false);
-  const _renderItem = ({ item }) => {
-    return (
-      <View style={styles.slide}>
-        <Text style={styles.title}>{item.title}</Text>
-        <Image source={item.image} />
-        <Text style={styles.text}>{item.text}</Text>
-      </View>
-    );
+const Home = (props) => {
+  const clickTestYourself = () => {
+    props.navigation.navigate("TestYourself");
   };
 
-  const _onDone = () => {
-    setShowRealApp = false;
-  };
+  return (
+    <View style={styles.container}>
+      <ImageBackground
+        source={require("../../../assets/images/thd01.jpg")}
+        resizeMode="cover"
+        style={styles.image}
+      >
+        <TouchableOpacity>
+          <Text style={styles.text}>Цэргийн дүрэм</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={clickTestYourself}>
+          <Text style={styles.text}>Дадлагын тест</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={styles.text}>Шалгалтын тест</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={styles.text}>Жагсаалын ажиллагаа</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={styles.text}>Бүрээ бөмбөр</Text>
+        </TouchableOpacity>
+      </ImageBackground>
+    </View>
+  );
+};
 
-  if (showRealApp) {
-    return <Home />;
-  } else {
-    return (
-      <AppIntroSlider renderItem={_renderItem} data={slides} onDone={_onDone} />
-    );
-  }
-}
+export default Home;
 
 const styles = StyleSheet.create({
-  buttonCircle: {
-    width: 40,
-    height: 40,
-    backgroundColor: "rgba(0, 0, 0, .2)",
-    borderRadius: 20,
+  container: {
+    flex: 1,
+  },
+  image: {
+    flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+  },
+  text: {
+    color: "white",
+    fontSize: 20,
+    lineHeight: 60,
+    fontWeight: "bold",
+    textAlign: "center",
+    backgroundColor: "#000000c0",
+    marginHorizontal: 20,
+    marginBottom: 20,
   },
 });
