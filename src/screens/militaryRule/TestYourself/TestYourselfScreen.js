@@ -3,6 +3,10 @@ import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
 const TestYourself = () => {
+  const clickMenu = (id) => {
+    console.log(id);
+  };
+
   return (
     <View style={styles.container}>
       <LinearGradient
@@ -13,21 +17,55 @@ const TestYourself = () => {
       <View style={styles.headerView}>
         <Text style={styles.headerText}>Шалгалтын сэдвээ сонгоно уу</Text>
       </View>
-      <TouchableOpacity style={styles.menuButton}>
+      <TouchableOpacity
+        onPress={() => {
+          clickMenu(1);
+        }}
+        style={[styles.menuButton, styles.menuButton1]}
+      >
         <Image
           style={styles.image}
           source={require("../../../../assets/images/military_rules/1.png")}
         />
-        <Text>Цэргийн дотоод албаны дүрэм</Text>
+        <Text style={styles.menuButtonText}>Цэргийн дотоод албаны дүрэм</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.menuButton}>
-        <Text>Цэргийн хүрээний ба харуулын албаны дүрэм</Text>
+      <TouchableOpacity
+        onPress={() => {
+          clickMenu(2);
+        }}
+        style={[styles.menuButton, styles.menuButton2]}
+      >
+        <Image
+          style={styles.image}
+          source={require("../../../../assets/images/military_rules/2.png")}
+        />
+        <Text style={styles.menuButtonText}>
+          Цэргийн хүрээний ба харуулын албаны дүрэм
+        </Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.menuButton}>
-        <Text>Цэргийн жагсаалын дүрэм</Text>
+      <TouchableOpacity
+        onPress={() => {
+          clickMenu(3);
+        }}
+        style={[styles.menuButton, styles.menuButton3]}
+      >
+        <Image
+          style={styles.image}
+          source={require("../../../../assets/images/military_rules/3.png")}
+        />
+        <Text style={styles.menuButtonText}>Цэргийн жагсаалын дүрэм</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.menuButton}>
-        <Text>Цэргийн сахилгын дүрэм</Text>
+      <TouchableOpacity
+        onPress={() => {
+          clickMenu(4);
+        }}
+        style={[styles.menuButton, styles.menuButton4]}
+      >
+        <Image
+          style={styles.image}
+          source={require("../../../../assets/images/military_rules/4.png")}
+        />
+        <Text style={styles.menuButtonText}>Цэргийн сахилгын дүрэм</Text>
       </TouchableOpacity>
     </View>
   );
@@ -52,10 +90,32 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   menuButton: {
-    marginHorizontal: 20,
+    width: "90%",
+    // marginHorizontal: 20,
+    // paddingHorizontal: 20,
     flexDirection: "row",
     padding: 10,
-    backgroundColor: "white",
+    marginBottom: 10,
+    borderRadius: 10,
+  },
+  menuButton1: {
+    backgroundColor: "#ff4c38",
+  },
+  menuButton2: {
+    backgroundColor: "#3daeff",
+  },
+  menuButton3: {
+    backgroundColor: "#ffbf29",
+  },
+  menuButton4: {
+    backgroundColor: "#009e28",
+  },
+  menuButtonText: {
+    paddingLeft: 10,
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 18,
+    flexWrap: "wrap",
   },
   background: {
     position: "absolute",
