@@ -15,8 +15,14 @@ export const initDB = () => {
           reject(err);
         }
       );
+    });
+  });
+};
+export const initDB1 = () => {
+  const promise = new Promise((resolve, reject) => {
+    db.transaction((tx) => {
       tx.executeSql(
-        "CREATE TABLE IF NOT EXISTS tbTests (id number, duremID number, bulegID number, question text, ans1 text, ans2 text, ans3 text, ans4 text, true_answer text, questionZaalt text,);",
+        "CREATE TABLE IF NOT EXISTS tbTests (id number, duremID number, bulegID number, question text, ans1 text, ans2 text, ans3 text, ans4 text, true_answer text, questionZaalt text);",
         [],
         (_, result) => {
           resolve(result);
@@ -75,7 +81,7 @@ export const insertQuestions = (questions) => {
     db.transaction((tx) => {
       questions.map((item) => {
         tx.executeSql(
-          "INSERT INTO tbTitles (id, duremID, bulegID, question, ans1, ans2, ans3, ans4, true_answer, questionZaalt) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+          "INSERT INTO tbTests (id, duremID, bulegID, question, ans1, ans2, ans3, ans4, true_answer, questionZaalt) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
           [
             item.ID,
             item.DUREM_ID,

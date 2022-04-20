@@ -36,14 +36,14 @@ export default class App extends React.Component {
     console.log("asd");
     selectQuestions()
       .then((res) => {
-        console.log(res);
+        console.log(res._array);
         this.setState({ questions: res._array });
       })
       .catch((err) => {});
   };
   _renderItem = ({ item }) => {
     return (
-      <View style={styles.slide}>
+      <View key={item.id} style={styles.slide}>
         <Text style={styles.title}>{item.question}</Text>
         {/* <Image source={item.image} /> */}
         <Text style={styles.text}>{item.question}</Text>
@@ -68,7 +68,7 @@ export default class App extends React.Component {
           </View>
           <AppIntroSlider
             renderItem={this._renderItem}
-            data={this.questions}
+            data={this.state.questions}
             onDone={this._onDone}
           />
         </>

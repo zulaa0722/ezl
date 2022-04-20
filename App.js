@@ -53,8 +53,10 @@ export default function App() {
       .get("discipline.php")
       .then((res) => {
         const initDB = dbMilRule.initDB();
+        const initDB1 = dbMilRule.initDB1();
         const insertTitles = dbMilRule.insertTitles(res.data.title);
         const insertQuestions = dbMilRule.insertQuestions(res.data.questions);
+        // console.log(res.data.questions);
         // const selects = dbMilRule.selectQuestions();
         // console.log(selects);
       })

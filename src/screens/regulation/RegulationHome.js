@@ -12,7 +12,7 @@ import {
 import RegulationNames from "../../components/regulation/RegulationTop";
 import { selectLawTypes } from "../../helpers/dbRegulation";
 import RegulationBottom from "../../components/regulation/RegulationBottom";
-import ExtendableComp from "../../components/regulation/RegulationExtendableComp";
+import RegulationExtendableComp from "../../components/regulation/RegulationExtendableComp";
 
 const RegulationHome = (props) => {
   const [ids, setID] = useState("");
@@ -62,7 +62,7 @@ const RegulationHome = (props) => {
           // }}
         >
           {articles ? (
-            <ExtendableComp />
+            <RegulationExtendableComp />
           ) : (
             <RegulationBottom ids={ids} navigateTo={navigateTo} />
           )}
