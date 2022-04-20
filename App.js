@@ -17,6 +17,7 @@ import axios from "./src/axios/axios-milRule";
 import * as dbMilRule from "./src/helpers/dbMilitaryRule";
 import TestYourself from "./src/screens/militaryRule/TestYourself/TestYourselfScreen";
 import TitleShowScreen from "./src/screens/militaryRule/TestYourself/TitleShowScreen";
+import ExamScreen from "./src/screens/militaryRule/Exam/ExamScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -52,6 +53,9 @@ export default function App() {
       .then((res) => {
         const initDB = dbMilRule.initDB();
         const insertTitles = dbMilRule.insertTitles(res.data.title);
+        const insertQuestions = dbMilRule.insertTitles(res.data.questions);
+        // const selects = dbMilRule.selectQuestions();
+        // console.log(selects);
       })
       .catch((err) => {
         console.log(err);
@@ -67,6 +71,7 @@ export default function App() {
         <Stack.Screen name="MilitaryHome" component={MilitaryHome} />
         <Stack.Screen name="TestYourself" component={TestYourself} />
         <Stack.Screen name="TitleShowScreen" component={TitleShowScreen} />
+        <Stack.Screen name="ExamScreen" component={ExamScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

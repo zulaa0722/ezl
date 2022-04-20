@@ -14,6 +14,10 @@ const Home = (props) => {
     props.navigation.navigate("TestYourself");
   };
 
+  const clickTestShow = () => {
+    props.navigation.navigate("ExamScreen");
+  };
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -49,7 +53,7 @@ const Home = (props) => {
           </LinearGradient>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.newButton}>
+        <TouchableOpacity style={styles.newButton} onPress={clickTestShow}>
           <LinearGradient
             colors={["#4c669f", "#3b5998", "#192f6a"]}
             style={styles.btnGradient}

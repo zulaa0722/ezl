@@ -69,3 +69,55 @@ export const selectTitles = (disId) => {
   // return result;
   return prom;
 };
+
+export const insertQuestions = (questions) => {
+  const promise = new Promise((resolve, reject) => {
+    db.transaction((tx) => {
+      questions.map((item) => {
+        tx.executeSql(
+          "INSERT INTO tbTitles (id, duremID, bulegID, question, ans1, ans2, ans3, ans4, true_answer, questionZaalt) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+          [
+            item.ID,
+            item.DUREM_ID,
+            item.BULEG_ID,
+            item.QUESTION,
+            item.ANS1,
+            item.ANS2,
+            item.ANS3,
+            item.ANS4,
+            item.TRUE_ANSWER,
+            item.QUESTION_ZAALT,
+          ],
+          (_, result) => {
+            resolve(result);
+          },
+          (_, err) => {
+            reject(err);
+          }
+        );
+      });
+    });
+  });
+
+  return promise;
+};
+
+export const selectQuestions = () => {
+  const prom = new Promise((resolve, reject) => {
+    const result = db.transaction((tx) => {
+      tx.executeSql(
+        "SELECT * FROM tbTests",
+        [],
+        (_, result) => {
+          // console.log(result.rows);
+          resolve(result.rows);
+        },
+        (_, err) => {
+          reject(err);
+        }
+      );
+    });
+  });
+  // return result;
+  return prom;
+};
