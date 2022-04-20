@@ -8,52 +8,44 @@ import {
 } from "react-native";
 import AppIntroSlider from "react-native-app-intro-slider";
 import { selectQuestions } from "../../../helpers/dbMilitaryRule";
+import { selectQuestionsByDurem } from "../../../helpers/dbMilitaryRule";
 import RadioGroup from "react-native-radio-buttons-group";
-
-const slides = [
-  {
-    key: 1,
-    title: "Title 1",
-    text: "Description.\nSay something cool",
-    // image: require("./assets/1.jpg"),
-    backgroundColor: "#59b2ab",
-  },
-  {
-    key: 2,
-    title: "Title 2",
-    text: "Other cool stuff",
-    // image: require("./assets/2.jpg"),
-    backgroundColor: "#febe29",
-  },
-  {
-    key: 3,
-    title: "Rocket guy",
-    text: "I'm already out of descriptions\n\nLorem ipsum bla bla bla",
-    // image: require("./assets/3.jpg"),
-    backgroundColor: "#22bcb5",
-  },
-];
+import RadioButton from "react-native-paper";
 
 export default class App extends React.Component {
   state = {
     showRealApp: false,
     questions: [],
+    radioBtnVal: "first",
   };
   componentDidMount = () => {
     console.log("asd");
-    // selectQuestions()
-    //   .then((res) => {
-    //     console.log(res);
-    //     this.setState({ questions: res._array });
-    //   })
-    //   .catch((err) => {});
+    selectQuestionsByDurem(this.props.route.params.bulegId)
+      .then((res) => {
+        console.log(res._array);
+        this.setState({ questions: res._array });
+      })
+      .catch((err) => {});
   };
   _renderItem = ({ item }) => {
     return (
-      <View style={styles.slide}>
-        <Text style={styles.title}>{item.title}</Text>
+      <View key={item.id} style={styles.slide}>
+        <Text style={styles.title}>{item.question}</Text>
         {/* <Image source={item.image} /> */}
-        <Text style={styles.quesText}>{item.text}</Text>
+        <Text style={styles.quesText}>{item.question}</Text>
+        {/* <RadioButton.Group
+          onValueChange={(newValue) => this.setState({ radioBtnVal: newValue })}
+          value={radioBtnVal}
+        >
+          <View>
+            <Text>First</Text>
+            <RadioButton value="first" />
+          </View>
+          <View>
+            <Text>Second</Text>
+            <RadioButton value="second" />
+          </View>
+        </RadioButton.Group> */}
       </View>
     );
   };
@@ -91,7 +83,7 @@ export default class App extends React.Component {
 
             <AppIntroSlider
               renderItem={this._renderItem}
-              data={slides}
+              data={this.state.questions}
               onDone={this._onDone}
             />
           </View>

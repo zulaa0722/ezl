@@ -21,6 +21,14 @@ const TitleShowScreen = (props) => {
       });
   }, []);
 
+  const clickOnRow = (id) => {
+    props.navigation.navigate("ShowQuestions", {
+      chapterName: props.route.params.chapterName,
+      chapterID: props.route.params.chapterID,
+      bulegId: id,
+    });
+  };
+
   return (
     <View style={styles.container}>
       {/* <Text>TitleShowScreen {props.route.params.chapterID}</Text>
@@ -47,10 +55,7 @@ const TitleShowScreen = (props) => {
           <TouchableOpacity
             style={styles.listBtn}
             onPress={() => {
-              props.navigation.navigate("ShowQuestions", {
-                chapterName: props.route.params.chapterName,
-                chapterID: props.route.params.chapterID,
-              });
+              clickOnRow(el.id);
             }}
           >
             <Text key={index}>{el.name}</Text>
