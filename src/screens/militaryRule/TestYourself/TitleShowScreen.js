@@ -53,12 +53,13 @@ const TitleShowScreen = (props) => {
         {/* <Text>TitleShowScreen {props.route.params.chapterID}</Text> */}
         {titles.map((el, index) => (
           <TouchableOpacity
+            key={index}
             style={styles.listBtn}
             onPress={() => {
               clickOnRow(el.id);
             }}
           >
-            <Text key={index}>{el.name}</Text>
+            <Text>{el.name}</Text>
           </TouchableOpacity>
         ))}
       </ScrollView>
