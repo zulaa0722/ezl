@@ -38,6 +38,7 @@ const RegulationBottom = (props) => {
             onPress={() => {
               navigateReading(data.item.id);
             }}
+            style={myStyle.btnStyle}
           >
             <View style={myStyle.wrapper}>
               <Text style={myStyle.text}>{data.item.articleName}</Text>
@@ -53,17 +54,24 @@ export default RegulationBottom;
 
 const myStyle = StyleSheet.create({
   container: {},
-  wrapper: {
+  btnStyle: {
+    // paddingTop: 5,
     marginTop: 5,
-    marginHorizontal: 15,
-    backgroundColor: "gray",
-    borderRadius: 5,
+  },
+  wrapper: {
+    //flex: 1,
+    flexDirection: "row",
+    marginTop: 5,
+    // paddingTop: 5,
+    marginHorizontal: 10,
+    backgroundColor: "#fff",
+    borderRadius: 10,
   },
   text: {
     fontSize: 18,
     margin: 10,
-    width: "90%",
+    // width: "90%",
     borderRadius: 5,
-    backgroundColor: "#46B2E0",
+    // backgroundColor: "#fff",
   },
 });
