@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, FlatList, SafeAreaView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  SafeAreaView,
+  ImageBackground,
+} from "react-native";
 // import * as SQLite  from 'expo-sqlite'
 
 import RegulationNames from "../../components/regulation/RegulationTop";
@@ -45,12 +52,21 @@ const RegulationHome = (props) => {
           )}
         />
       </View>
+
       <View style={styles.bottomView}>
-        {articles ? (
-          <ExtendableComp />
-        ) : (
-          <RegulationBottom ids={ids} navigateTo={navigateTo} />
-        )}
+        <ImageBackground
+          style={{ flex: 1, justifyContent: "flex-end" }}
+          source={require("../../../assets/images/background.png")}
+          // source={{
+          //   uri: "../../assets/images/thd01.jpg",
+          // }}
+        >
+          {articles ? (
+            <ExtendableComp />
+          ) : (
+            <RegulationBottom ids={ids} navigateTo={navigateTo} />
+          )}
+        </ImageBackground>
       </View>
     </SafeAreaView>
   );
@@ -61,21 +77,31 @@ export default RegulationHome;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#E5D68A",
+    // backgroundColor: "#E5D68A",
   },
   flatlist: {},
   topView: {
-    flex: 0.4,
+    flex: 0.2,
     // justifyContent: "center",
     // alignItems: "center",
+    // padding: 10,
+    shadowColor: "#000000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowRadius: 5,
+    shadowOpacity: 1.0,
+
     //
   },
   bottomView: {
-    flex: 0.6,
+    flex: 0.8,
     backgroundColor: "#51E1ED",
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     overflow: "hidden",
+    // paddingTop: 5,
   },
   text: {
     fontSize: 20,
