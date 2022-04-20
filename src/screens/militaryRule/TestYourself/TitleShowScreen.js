@@ -7,7 +7,7 @@ const TitleShowScreen = (props) => {
   useEffect(() => {});
   return (
     <View>
-      <Text>TitleShowScreen1</Text>
+      <Text>TitleShowScreen {props.route.params.chapterID}</Text>
     </View>
   );
 };
