@@ -59,7 +59,7 @@ const TitleShowScreen = (props) => {
               clickOnRow(el.id);
             }}
           >
-            <Text>{el.name}</Text>
+            <Text style={styles.rowText}>{el.name}</Text>
           </TouchableOpacity>
         ))}
       </ScrollView>
@@ -95,6 +95,9 @@ const styles = StyleSheet.create({
     color: "#fff",
     padding: 2,
   },
+  rowText: {
+    color: "black",
+  },
   line: {
     width: 1,
     backgroundColor: "#fff",
@@ -109,7 +112,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   listBtn: {
-    flex: 1,
+    // flex: 1,
     padding: 10,
     //marginBottom: 5,
     // borderRadius: 5,
