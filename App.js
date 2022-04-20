@@ -13,13 +13,17 @@ import RegulationReading from "./src/screens/regulation/RegulationReadingScreen"
 import MilitaryHome from "./src/screens/militaryRule/Home";
 
 // Цэргийн дүрэм components
+import axios from "./src/axios/axios-milRule";
+// import * as
 import TestYourself from "./src/screens/militaryRule/TestYourself/TestYourselfScreen";
+import TitleShowScreen from "./src/screens/militaryRule/TestYourself/TitleShowScreen";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   useEffect(() => {
     const initDB = dbRegulation.initDb();
+    loadMilitaryRuleData();
     fetchData("getData.php", "")
       .then((res) => {
         const insertLawTypes = dbRegulation.insertLawTypes(res.lawType);
@@ -39,6 +43,17 @@ export default function App() {
       });
   }, []);
 
+  const loadMilitaryRuleData = () => {
+    axios
+      .get("discipline.php")
+      .then((res) => {
+        console.log(res.data.title.length);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{}} initialRouteName="home">
@@ -47,6 +62,7 @@ export default function App() {
         <Stack.Screen name="regulationReading" component={RegulationReading} />
         <Stack.Screen name="MilitaryHome" component={MilitaryHome} />
         <Stack.Screen name="TestYourself" component={TestYourself} />
+        <Stack.Screen name="TitleShowScreen" component={TitleShowScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

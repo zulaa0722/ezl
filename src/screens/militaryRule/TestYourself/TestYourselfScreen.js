@@ -2,9 +2,10 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
-const TestYourself = () => {
+const TestYourself = (props) => {
   const clickMenu = (id) => {
-    console.log(id);
+    // console.log(id);
+    props.navigation.navigate("TitleShowScreen", { chapterID: id });
   };
 
   return (
@@ -97,6 +98,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 10,
     borderRadius: 10,
+    alignItems: "center",
   },
   menuButton1: {
     backgroundColor: "#ff4c38",
