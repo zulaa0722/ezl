@@ -17,6 +17,7 @@ import axios from "./src/axios/axios-milRule";
 import * as dbMilRule from "./src/helpers/dbMilitaryRule";
 import TestYourself from "./src/screens/militaryRule/TestYourself/TestYourselfScreen";
 import TitleShowScreen from "./src/screens/militaryRule/TestYourself/TitleShowScreen";
+import ShowQuestions from "./src/screens/militaryRule/TestYourself/ShowQuestions";
 
 const Stack = createNativeStackNavigator();
 
@@ -67,6 +68,7 @@ export default function App() {
         <Stack.Screen name="MilitaryHome" component={MilitaryHome} />
         <Stack.Screen name="TestYourself" component={TestYourself} />
         <Stack.Screen name="TitleShowScreen" component={TitleShowScreen} />
+        <Stack.Screen name="ShowQuestions" component={ShowQuestions} />
       </Stack.Navigator>
     </NavigationContainer>
   );

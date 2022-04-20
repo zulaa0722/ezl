@@ -3,9 +3,12 @@ import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
 const TestYourself = (props) => {
-  const clickMenu = (id) => {
+  const clickMenu = (id, chapterName) => {
     // console.log(id);
-    props.navigation.navigate("TitleShowScreen", { chapterID: id });
+    props.navigation.navigate("TitleShowScreen", {
+      chapterID: id,
+      chapterName: chapterName,
+    });
   };
 
   return (
@@ -20,7 +23,7 @@ const TestYourself = (props) => {
       </View>
       <TouchableOpacity
         onPress={() => {
-          clickMenu(1);
+          clickMenu(1, "Цэргийн дотоод албаны дүрэм");
         }}
         style={[styles.menuButton, styles.menuButton1]}
       >
@@ -32,7 +35,7 @@ const TestYourself = (props) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          clickMenu(2);
+          clickMenu(2, "Цэргийн хүрээний ба харуулын албаны дүрэм");
         }}
         style={[styles.menuButton, styles.menuButton2]}
       >
@@ -46,7 +49,7 @@ const TestYourself = (props) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          clickMenu(3);
+          clickMenu(3, "Цэргийн жагсаалын дүрэм");
         }}
         style={[styles.menuButton, styles.menuButton3]}
       >
@@ -58,7 +61,7 @@ const TestYourself = (props) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          clickMenu(4);
+          clickMenu(4, "Цэргийн сахилгын дүрэм");
         }}
         style={[styles.menuButton, styles.menuButton4]}
       >

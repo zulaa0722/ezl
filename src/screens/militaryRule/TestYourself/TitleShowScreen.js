@@ -1,4 +1,10 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import React, { useState, useEffect } from "react";
 import { selectTitles } from "../../../helpers/dbMilitaryRule";
 const TitleShowScreen = (props) => {
@@ -15,42 +21,39 @@ const TitleShowScreen = (props) => {
       });
   }, []);
 
-  useEffect(() => {});
   return (
-    <View>
-      <Text>TitleShowScreen {props.route.params.chapterID}</Text>
-      <Text>hed bn ve {titles.length}</Text>
-      {titles.map((el, index) => (
-        <Text key={index}>{el.name}</Text>
-      ))}
-      <View style={styles.container}>
-        <View style={styles.headerRow}>
-          {/* <LinearGradient
-              colors={["#4c669f", "#3b5998", "#192f6a"]}
-              style={home_styles.btnGradient}
-            > */}
-          {/* <Image
-            style={home_styles.image}
-            source={require("../../assets/images/law05.png")}
-          /> */}
+    <View style={styles.container}>
+      {/* <Text>TitleShowScreen {props.route.params.chapterID}</Text>
+      <Text>hed bn ve {titles.length}</Text> */}
+      <View style={styles.headerRow}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => {
+            // props.navigation.navigate("regulationHome");
+          }}
+        >
+          <Text>Буцах</Text>
+        </TouchableOpacity>
+        <Text style={styles.line}> </Text>
+
+        <Text style={styles.text}> {props.route.params.chapterName}</Text>
+
+        {/* </LinearGradient> */}
+      </View>
+
+      <ScrollView style={styles.bodySide}>
+        {/* <Text>TitleShowScreen {props.route.params.chapterID}</Text> */}
+        {titles.map((el, index) => (
           <TouchableOpacity
-            style={styles.backButton}
+            style={styles.listBtn}
             onPress={() => {
-              // props.navigation.navigate("regulationHome");
+              props.navigation.navigate("ShowQuestions");
             }}
           >
-            <Text>Буцах</Text>
+            <Text key={index}>{el.name}</Text>
           </TouchableOpacity>
-          <Text style={styles.line}> </Text>
-          <Text style={styles.text}>
-            Батлан хамгаалах, Зэвсэгт хүчний тухай хуулиуд
-          </Text>
-          {/* </LinearGradient> */}
-        </View>
-        <View style={styles.bodySide}>
-          <Text>TitleShowScreen {props.route.params.chapterID}</Text>
-        </View>
-      </View>
+        ))}
+      </ScrollView>
     </View>
   );
 };
@@ -60,43 +63,28 @@ export default TitleShowScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // alignItems: "center",
-    // justifyContent: "center",
-    // alignItems: "center",
-    //flexDirection: "row",
-    // backgroundColor: "orange",
   },
 
   backButton: {
     backgroundColor: "#00aeef",
-    padding: 10,
-    height: 40,
-    //borderRadius: 5,
-    // borderTopRightRadius: 20,
-    // flex: 1,
+    padding: 15,
+    height: 45,
   },
   headerRow: {
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
-    height: 40,
+    height: 45,
     width: "100%",
-    // marginBottom: "5%",
-    // marginRight: 20,
-    // marginLeft: 20,
-    // borderRadius: 15,
-    borderColor: "#fff",
     backgroundColor: "green",
-    // flex: 1,
-    // borderWidth: 1,
   },
   text: {
     textAlign: "center",
     fontSize: 16,
     fontWeight: "bold",
-    // paddingRight: 10,
     flex: 1,
     color: "#fff",
+    padding: 2,
   },
   line: {
     width: 1,
@@ -107,9 +95,17 @@ const styles = StyleSheet.create({
   },
   bodySide: {
     flex: 1,
-    backgroundColor: "#51E1ED",
-    // borderTopLeftRadius: 20,
-    // borderTopRightRadius: 20,
+    padding: 5,
+    backgroundColor: "#fff",
     overflow: "hidden",
+  },
+  listBtn: {
+    flex: 1,
+    padding: 10,
+    //marginBottom: 5,
+    // borderRadius: 5,
+    // backgroundColor: "green",
+    borderBottomColor: "grey",
+    borderBottomWidth: 2,
   },
 });
