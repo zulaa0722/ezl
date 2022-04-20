@@ -6,6 +6,16 @@ export const initDB = () => {
   const promise = new Promise((resolve, reject) => {
     db.transaction((tx) => {
       tx.executeSql(
+        "DROP TABLE IF EXISTS tbTitles;",
+        [],
+        (_, result) => {
+          resolve(result);
+        },
+        (_, err) => {
+          reject(err);
+        }
+      );
+      tx.executeSql(
         "CREATE TABLE IF NOT EXISTS tbTitles (id number, duremID number, bulegID number, name text);",
         [],
         (_, result) => {
@@ -21,6 +31,16 @@ export const initDB = () => {
 export const initDB1 = () => {
   const promise = new Promise((resolve, reject) => {
     db.transaction((tx) => {
+      tx.executeSql(
+        "DROP TABLE IF EXISTS tbTests;",
+        [],
+        (_, result) => {
+          resolve(result);
+        },
+        (_, err) => {
+          reject(err);
+        }
+      );
       tx.executeSql(
         "CREATE TABLE IF NOT EXISTS tbTests (id number, duremID number, bulegID number, question text, ans1 text, ans2 text, ans3 text, ans4 text, true_answer text, questionZaalt text);",
         [],
@@ -112,7 +132,7 @@ export const selectQuestions = () => {
   const prom = new Promise((resolve, reject) => {
     const result = db.transaction((tx) => {
       tx.executeSql(
-        "SELECT * FROM tbTests",
+        "SELECT * FROM tbTests ORDER BY RANDOM() LIMIT 25",
         [],
         (_, result) => {
           // console.log(result.rows);
