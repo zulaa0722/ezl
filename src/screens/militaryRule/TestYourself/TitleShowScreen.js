@@ -47,7 +47,10 @@ const TitleShowScreen = (props) => {
           <TouchableOpacity
             style={styles.listBtn}
             onPress={() => {
-              props.navigation.navigate("ShowQuestions");
+              props.navigation.navigate("ShowQuestions", {
+                chapterName: props.route.params.chapterName,
+                chapterID: props.route.params.chapterID,
+              });
             }}
           >
             <Text key={index}>{el.name}</Text>
