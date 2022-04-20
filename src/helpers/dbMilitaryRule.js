@@ -1,9 +1,9 @@
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("militaryRule.db", "3.0");
+const db = SQLite.openDatabase("militaryRule.db", "4.0");
 
 export const initDB = () => {
-  const promise = new Promise((revolve, reject) => {
+  const promise = new Promise((resolve, reject) => {
     db.transaction((tx) => {
       tx.executeSql(
         "CREATE TABLE IF NOT EXISTS tbTitles (id number, duremID number, bulegID number, name text);",
@@ -51,17 +51,21 @@ export const insertTitles = (titles) => {
 };
 
 export const selectTitles = (disId) => {
-  const result = db.transaction((tx) => {
-    tx.executeSql(
-      "SELECT * FROM tbTitles WHERE duremID = ?",
-      [disId],
-      (_, result) => {
-        result.rows;
-      },
-      (_, err) => {
-        err;
-      }
-    );
+  const prom = new Promise((resolve, reject) => {
+    const result = db.transaction((tx) => {
+      tx.executeSql(
+        "SELECT * FROM tbTitles WHERE duremID=?",
+        [disId],
+        (_, result) => {
+          // console.log(result.rows);
+          resolve(result.rows);
+        },
+        (_, err) => {
+          reject(err);
+        }
+      );
+    });
   });
-  return result;
+  // return result;
+  return prom;
 };

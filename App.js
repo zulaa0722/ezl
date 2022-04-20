@@ -14,7 +14,7 @@ import MilitaryHome from "./src/screens/militaryRule/Home";
 
 // Цэргийн дүрэм components
 import axios from "./src/axios/axios-milRule";
-// import * as
+import * as dbMilRule from "./src/helpers/dbMilitaryRule";
 import TestYourself from "./src/screens/militaryRule/TestYourself/TestYourselfScreen";
 import TitleShowScreen from "./src/screens/militaryRule/TestYourself/TitleShowScreen";
 
@@ -23,7 +23,10 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   useEffect(() => {
     const initDB = dbRegulation.initDb();
-    loadMilitaryRuleData();
+    const a = loadMilitaryRuleData();
+
+    const titless = dbMilRule.selectTitles(1);
+    console.log(titless);
     fetchData("getData.php", "")
       .then((res) => {
         const insertLawTypes = dbRegulation.insertLawTypes(res.lawType);
@@ -43,11 +46,12 @@ export default function App() {
       });
   }, []);
 
-  const loadMilitaryRuleData = () => {
-    axios
+  const loadMilitaryRuleData = async () => {
+    await axios
       .get("discipline.php")
       .then((res) => {
-        console.log(res.data.title.length);
+        const initDB = dbMilRule.initDB();
+        const insertTitles = dbMilRule.insertTitles(res.data.title);
       })
       .catch((err) => {
         console.log(err);
