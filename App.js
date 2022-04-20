@@ -54,7 +54,7 @@ export default function App() {
       .then((res) => {
         const initDB = dbMilRule.initDB();
         const insertTitles = dbMilRule.insertTitles(res.data.title);
-        const insertQuestions = dbMilRule.insertTitles(res.data.questions);
+        const insertQuestions = dbMilRule.insertQuestions(res.data.questions);
         // const selects = dbMilRule.selectQuestions();
         // console.log(selects);
       })

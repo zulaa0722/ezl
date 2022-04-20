@@ -121,3 +121,23 @@ export const selectQuestions = () => {
   // return result;
   return prom;
 };
+
+export const selectQuestionsByDurem = (chapterID) => {
+  const prom = new Promise((resolve, reject) => {
+    const result = db.transaction((tx) => {
+      tx.executeSql(
+        "SELECT * FROM tbTests WHERE bulegID = ?",
+        [chapterID],
+        (_, result) => {
+          // console.log(result.rows);
+          resolve(result.rows);
+        },
+        (_, err) => {
+          reject(err);
+        }
+      );
+    });
+  });
+  // return result;
+  return prom;
+};

@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import AppIntroSlider from "react-native-app-intro-slider";
+import { selectQuestions } from "../../../helpers/dbMilitaryRule";
 
 const slides = [
   {
@@ -33,13 +34,19 @@ export default class App extends React.Component {
   };
   componentDidMount = () => {
     console.log("asd");
+    selectQuestions()
+      .then((res) => {
+        console.log(res);
+        this.setState({ questions: res._array });
+      })
+      .catch((err) => {});
   };
   _renderItem = ({ item }) => {
     return (
       <View style={styles.slide}>
-        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.title}>{item.question}</Text>
         {/* <Image source={item.image} /> */}
-        <Text style={styles.text}>{item.text}</Text>
+        <Text style={styles.text}>{item.question}</Text>
       </View>
     );
   };
@@ -61,7 +68,7 @@ export default class App extends React.Component {
           </View>
           <AppIntroSlider
             renderItem={this._renderItem}
-            data={slides}
+            data={this.questions}
             onDone={this._onDone}
           />
         </>
