@@ -59,7 +59,9 @@ const TitleShowScreen = (props) => {
               clickOnRow(el.id);
             }}
           >
-            <Text style={styles.rowText}>{el.name}</Text>
+            <Text style={styles.rowText}>
+              {el.name} = {el.count} асуулттай
+            </Text>
           </TouchableOpacity>
         ))}
       </ScrollView>
