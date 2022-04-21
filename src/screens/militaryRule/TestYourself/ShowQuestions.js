@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -11,13 +11,29 @@ import { selectQuestions } from "../../../helpers/dbMilitaryRule";
 import { selectQuestionsByDurem } from "../../../helpers/dbMilitaryRule";
 import RadioGroup from "react-native-radio-buttons-group";
 import RadioButton from "react-native-paper";
+import ShowResult from "../../../components/militaryRule/testYourself/ShowResult";
+import ShowQuestion from "../../../components/militaryRule/testYourself/ShowQuestion";
 
 export default class App extends React.Component {
-  state = {
-    showRealApp: false,
-    questions: [],
-    radioBtnVal: "first",
+  constructor(props) {
+    super(props);
+    this.state = {
+      showRealApp: false,
+      questions: [],
+      checkAns: false,
+    };
+  }
+  ansBtnFn = (ans, true_answer) => {
+    if (ans === true_answer) {
+      console.log(ans);
+      this.setState({ checkAns: true });
+      //   console.log(this.state.checkAns);
+    } else {
+      this.setState({ checkAns: false });
+    }
+    // console.log(true_answer);
   };
+
   componentDidMount = () => {
     console.log("asd");
     selectQuestionsByDurem(this.props.route.params.bulegId)
@@ -27,7 +43,9 @@ export default class App extends React.Component {
       })
       .catch((err) => {});
   };
+
   _renderItem = ({ item }) => {
+    // const [isTrue, setIsTrue] = useState(false);
     return (
       <View key={item.id} style={styles.slide}>
         <View style={styles.questionsStyle}>
@@ -37,8 +55,7 @@ export default class App extends React.Component {
         <TouchableOpacity
           style={styles.ansBtn}
           onPress={() => {
-            ansBtn(item.ans1, item.true_answer);
-            // props.navigation.navigate("regulationHome");
+            this.ansBtnFn(item.ans1, item.true_answer);
           }}
         >
           <Text style={styles.ansText}>{item.ans1}</Text>
@@ -47,7 +64,7 @@ export default class App extends React.Component {
         <TouchableOpacity
           style={styles.ansBtn}
           onPress={() => {
-            // props.navigation.navigate("regulationHome");
+            this.ansBtnFn(item.ans2, item.true_answer);
           }}
         >
           <Text style={styles.ansText}>{item.ans2}</Text>
@@ -56,7 +73,7 @@ export default class App extends React.Component {
         <TouchableOpacity
           style={styles.ansBtn}
           onPress={() => {
-            // props.navigation.navigate("regulationHome");
+            this.ansBtnFn(item.ans3, item.true_answer);
           }}
         >
           <Text style={styles.ansText}>{item.ans3}</Text>
@@ -65,11 +82,13 @@ export default class App extends React.Component {
         <TouchableOpacity
           style={styles.ansBtn}
           onPress={() => {
-            // props.navigation.navigate("regulationHome");
+            this.ansBtnFn(item.ans4, item.true_answer);
           }}
         >
           <Text style={styles.ansText}>{item.ans4}</Text>
         </TouchableOpacity>
+
+        {this.state.checkAns && <ShowResult />}
       </View>
     );
   };

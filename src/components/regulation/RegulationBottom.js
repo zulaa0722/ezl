@@ -28,25 +28,22 @@ const RegulationBottom = (props) => {
   };
 
   return (
-    <View>
-      {/* <Text> asdfadsf {articles.length} asdf</Text> */}
-      <FlatList
-        data={articles}
-        keyExtractor={articles.id}
-        renderItem={(data) => (
-          <TouchableOpacity
-            onPress={() => {
-              navigateReading(data.item.id);
-            }}
-            style={myStyle.btnStyle}
-          >
-            <View style={myStyle.wrapper}>
-              <Text style={myStyle.text}>{data.item.articleName}</Text>
-            </View>
-          </TouchableOpacity>
-        )}
-      />
-    </View>
+    <FlatList
+      data={articles}
+      keyExtractor={articles.id}
+      renderItem={(data) => (
+        <TouchableOpacity
+          onPress={() => {
+            navigateReading(data.item.id);
+          }}
+          style={myStyle.btnStyle}
+        >
+          <View style={myStyle.wrapper}>
+            <Text style={myStyle.text}>{data.item.articleName}</Text>
+          </View>
+        </TouchableOpacity>
+      )}
+    />
   );
 };
 

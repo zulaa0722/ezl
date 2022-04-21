@@ -37,6 +37,10 @@ export default RegulationReadingScreen;
 
 const styles = StyleSheet.create({
   container: {
+    padding: 20,
+    color: "black",
     fontSize: 80,
+    fontWeight: "bold",
+    borderRadius: 5,
   },
 });
