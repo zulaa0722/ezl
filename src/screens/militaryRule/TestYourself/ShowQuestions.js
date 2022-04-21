@@ -30,22 +30,46 @@ export default class App extends React.Component {
   _renderItem = ({ item }) => {
     return (
       <View key={item.id} style={styles.slide}>
-        <Text style={styles.title}>{item.question}</Text>
-        {/* <Image source={item.image} /> */}
-        <Text style={styles.quesText}>{item.question}</Text>
-        {/* <RadioButton.Group
-          onValueChange={(newValue) => this.setState({ radioBtnVal: newValue })}
-          value={radioBtnVal}
+        <View style={styles.questionsStyle}>
+          <Text style={styles.questionsText}>{item.question}</Text>
+        </View>
+
+        <TouchableOpacity
+          style={styles.ansBtn}
+          onPress={() => {
+            ansBtn(item.ans1, item.true_answer);
+            // props.navigation.navigate("regulationHome");
+          }}
         >
-          <View>
-            <Text>First</Text>
-            <RadioButton value="first" />
-          </View>
-          <View>
-            <Text>Second</Text>
-            <RadioButton value="second" />
-          </View>
-        </RadioButton.Group> */}
+          <Text style={styles.ansText}>{item.ans1}</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.ansBtn}
+          onPress={() => {
+            // props.navigation.navigate("regulationHome");
+          }}
+        >
+          <Text style={styles.ansText}>{item.ans2}</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.ansBtn}
+          onPress={() => {
+            // props.navigation.navigate("regulationHome");
+          }}
+        >
+          <Text style={styles.ansText}>{item.ans3}</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.ansBtn}
+          onPress={() => {
+            // props.navigation.navigate("regulationHome");
+          }}
+        >
+          <Text style={styles.ansText}>{item.ans4}</Text>
+        </TouchableOpacity>
       </View>
     );
   };
@@ -132,8 +156,34 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     overflow: "hidden",
   },
-  title: {},
+
   quesText: {
     color: "black",
+    fontSize: 14,
+    fontWeight: "bold",
+    borderRadius: 5,
+  },
+  ansBtn: {
+    marginBottom: 5,
+    borderRadius: 5,
+    padding: 5,
+    marginLeft: 20,
+    marginRight: 20,
+    backgroundColor: "green",
+  },
+  ansText: {
+    color: "#fff",
+    fontSize: 13,
+  },
+  questionsStyle: {
+    borderRadius: 10,
+    borderColor: "green",
+    borderWidth: 2,
+    padding: 5,
+    marginBottom: 5,
+  },
+  questionsText: {
+    color: "black",
+    fontSize: 13,
   },
 });
