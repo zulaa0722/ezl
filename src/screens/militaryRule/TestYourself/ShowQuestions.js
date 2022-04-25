@@ -21,25 +21,33 @@ export default class App extends React.Component {
       showRealApp: false,
       questions: [],
       checkAns: false,
+      answers: [],
     };
   }
-  ansBtnFn = (ans, true_answer) => {
-    if (ans === true_answer) {
-      console.log(ans);
-      this.setState({ checkAns: true });
-      //   console.log(this.state.checkAns);
-    } else {
-      this.setState({ checkAns: false });
+  ansBtnFn = (id, ans, true_answer) => {
+    let answers = this.state.answers;
+    for (var i = 0; i < answers.length; i++) {
+      if (answers[i].id === id) {
+        answers[i].userAnswer = true_answer;
+      }
     }
-    // console.log(true_answer);
+    this.setState({ answers: answers });
   };
 
   componentDidMount = () => {
     console.log("asd");
     selectQuestionsByDurem(this.props.route.params.bulegId)
       .then((res) => {
-        console.log(res._array);
+        // console.log(res._array);
         this.setState({ questions: res._array });
+
+        let answers = [];
+        res._array.map((el) => {
+          var el1 = { id: el.id, trueAnswer: el.true_answer, userAnswer: "" };
+          answers.push(el1);
+        });
+        console.log(answers);
+        this.setState({ answers: answers });
       })
       .catch((err) => {});
   };
@@ -55,7 +63,7 @@ export default class App extends React.Component {
         <TouchableOpacity
           style={styles.ansBtn}
           onPress={() => {
-            this.ansBtnFn(item.ans1, item.true_answer);
+            this.ansBtnFn(item.id, item.ans1, item.true_answer);
           }}
         >
           <Text style={styles.ansText}>{item.ans1}</Text>
@@ -64,7 +72,7 @@ export default class App extends React.Component {
         <TouchableOpacity
           style={styles.ansBtn}
           onPress={() => {
-            this.ansBtnFn(item.ans2, item.true_answer);
+            this.ansBtnFn(item.id, item.ans2, item.true_answer);
           }}
         >
           <Text style={styles.ansText}>{item.ans2}</Text>
@@ -73,7 +81,7 @@ export default class App extends React.Component {
         <TouchableOpacity
           style={styles.ansBtn}
           onPress={() => {
-            this.ansBtnFn(item.ans3, item.true_answer);
+            this.ansBtnFn(item.id, item.ans3, item.true_answer);
           }}
         >
           <Text style={styles.ansText}>{item.ans3}</Text>
@@ -82,13 +90,15 @@ export default class App extends React.Component {
         <TouchableOpacity
           style={styles.ansBtn}
           onPress={() => {
-            this.ansBtnFn(item.ans4, item.true_answer);
+            this.ansBtnFn(item.id, item.ans4, item.true_answer);
           }}
         >
           <Text style={styles.ansText}>{item.ans4}</Text>
         </TouchableOpacity>
 
-        {this.state.checkAns && <ShowResult />}
+        {this.state.answers.length > 0 &&
+          this.state.answers[0].userAnswer ===
+            this.state.answers[0].trueAnswer && <ShowResult />}
       </View>
     );
   };
@@ -125,7 +135,8 @@ export default class App extends React.Component {
             </View>
 
             <AppIntroSlider
-              renderItem={this._renderItem}
+              // renderItem={this._renderItem}
+              renderItem={ShowQuestion}
               data={this.state.questions}
               onDone={this._onDone}
             />
