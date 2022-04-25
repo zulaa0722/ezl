@@ -8,6 +8,7 @@ import {
   Button,
 } from "react-native";
 import React, { useEffect } from "react";
+import { AudioPlayer } from "react-native-simple-audio-player";
 // import { Audio } from "expo-av";
 // import SoundPlayer from "react-native-sound-player";
 // import { AudioPlayer } from "react-native-simple-audio-player";
@@ -76,8 +77,17 @@ const BureeBumberPlay = (props) => {
       /> */}
 
       {/* <Button title="Play Sound" onPress={playSound} /> */}
-      <View>
-        <Text>dghdghh</Text>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#313131",
+          justifyContent: "center",
+        }}
+      >
+        <AudioPlayer
+          url={"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"}
+        />
+        (0, _)
       </View>
     </View>
   );
