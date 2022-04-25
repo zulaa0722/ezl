@@ -1,10 +1,17 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const ShowResult = () => {
+const ShowResult = (props) => {
   return (
     <View>
-      <Text>ShowResult</Text>
+      {props.userAns === props.trueAns ? (
+        <Text>Зөв хариуллаа.</Text>
+      ) : (
+        <>
+          <Text>Буруу хариуллаа.</Text>
+          <Text>{props.ansDiscription}</Text>
+        </>
+      )}
     </View>
   );
 };

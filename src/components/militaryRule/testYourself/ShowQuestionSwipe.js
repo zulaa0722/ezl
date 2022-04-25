@@ -1,50 +1,22 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
-import ShowResult from "./ShowResult";
 
-const ShowQuestion = (props) => {
-  const [showResult, setShowResult] = useState(false);
-  const [userAns, setUserAns] = useState(false);
-  const [trueAns, setTrueAns] = useState(false);
-  const [ansDiscription, setAnsDiscription] = useState(false);
-
-  const ansBtnFn = (ans, true_answer, discription) => {
-    setShowResult(true);
-    setUserAns(ans);
-    setTrueAns(true_answer);
-    setAnsDiscription(discription);
-  };
-  // const ansBtnFn = (ans, true_answer) => {};
+const ShowQuestionSwipe = (props) => {
+  const [checkAns, setCheckAns] = useState(false);
   return (
-    // <View>
-    //   <Text>{props.item.ans1} dfbdfb</Text>
-    // </View>
     <View key={props.item.id} style={styles.slide}>
       <View style={styles.questionsStyle}>
         <Text style={styles.questionsText}>{props.item.question}</Text>
       </View>
 
-      <TouchableOpacity
-        style={styles.ansBtn}
-        onPress={() => {
-          ansBtnFn(
-            props.item.ans1,
-            props.item.true_answer,
-            props.item.true_answer
-          );
-        }}
-      >
+      <TouchableOpacity style={styles.ansBtn}>
         <Text style={styles.ansText}>{props.item.ans1}</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.ansBtn}
         onPress={() => {
-          ansBtnFn(
-            props.item.ans2,
-            props.item.true_answer,
-            props.item.true_answer
-          );
+          //   ansBtnFn(props.item.ans2, props.item.true_answer);
         }}
       >
         <Text style={styles.ansText}>{props.item.ans2}</Text>
@@ -53,11 +25,7 @@ const ShowQuestion = (props) => {
       <TouchableOpacity
         style={styles.ansBtn}
         onPress={() => {
-          ansBtnFn(
-            props.item.ans3,
-            props.item.true_answer,
-            props.item.true_answer
-          );
+          //   ansBtnFn(props.item.ans3, props.item.true_answer);
         }}
       >
         <Text style={styles.ansText}>{props.item.ans3}</Text>
@@ -66,28 +34,19 @@ const ShowQuestion = (props) => {
       <TouchableOpacity
         style={styles.ansBtn}
         onPress={() => {
-          ansBtnFn(
-            props.item.ans4,
-            props.item.true_answer,
-            props.item.true_answer
-          );
+          //   ansBtnFn(props.item.ans4, props.item.true_answer);
         }}
       >
         <Text style={styles.ansText}>{props.item.ans4}</Text>
       </TouchableOpacity>
 
-      {showResult && (
-        <ShowResult
-          ansDiscription={ansDiscription}
-          userAns={userAns}
-          trueAns={trueAns}
-        />
-      )}
+      {/* {checkAns == true && <ShowResult />}
+      <ShowResult /> */}
     </View>
   );
 };
 
-export default ShowQuestion;
+export default ShowQuestionSwipe;
 
 const styles = StyleSheet.create({
   slide: {
