@@ -17,6 +17,9 @@ const Home = (props) => {
   const clickTestShow = () => {
     props.navigation.navigate("ExamScreen");
   };
+  const clickBureeBumbur = () => {
+    props.navigation.navigate("BureeBumbur");
+  };
 
   return (
     <View style={styles.container}>
@@ -81,7 +84,7 @@ const Home = (props) => {
           </LinearGradient>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.newButton}>
+        <TouchableOpacity style={styles.newButton} onPress={clickBureeBumbur}>
           <LinearGradient
             colors={["#4c669f", "#3b5998", "#192f6a"]}
             style={styles.btnGradient}
