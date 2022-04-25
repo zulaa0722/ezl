@@ -19,6 +19,8 @@ import TestYourself from "./src/screens/militaryRule/TestYourself/TestYourselfSc
 import TitleShowScreen from "./src/screens/militaryRule/TestYourself/TitleShowScreen";
 import ExamScreen from "./src/screens/militaryRule/Exam/ExamScreen";
 import ShowQuestions from "./src/screens/militaryRule/TestYourself/ShowQuestions";
+import BureeBumbur from "./src/screens/militaryRule/BureeBumbur/BureeBumbur";
+import BureeBumberPlay from "./src/screens/militaryRule/BureeBumbur/BureeBumberPlay";
 
 const Stack = createNativeStackNavigator();
 
@@ -76,6 +78,8 @@ export default function App() {
         <Stack.Screen name="TitleShowScreen" component={TitleShowScreen} />
         <Stack.Screen name="ExamScreen" component={ExamScreen} />
         <Stack.Screen name="ShowQuestions" component={ShowQuestions} />
+        <Stack.Screen name="BureeBumbur" component={BureeBumbur} />
+        <Stack.Screen name="BureeBumberPlay" component={BureeBumberPlay} />
       </Stack.Navigator>
     </NavigationContainer>
   );
