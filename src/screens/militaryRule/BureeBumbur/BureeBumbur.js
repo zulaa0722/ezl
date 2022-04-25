@@ -181,7 +181,7 @@ const BureeBumbur = (props) => {
         }}
       >
         <Image
-          style={styles.image}
+          style={styles.imageBumbur}
           source={require("../../../../assets/images/icons/bombor.png")}
         />
         <Text style={styles.rowText}>Тугийн дор</Text>
@@ -194,7 +194,7 @@ const BureeBumbur = (props) => {
         }}
       >
         <Image
-          style={styles.image}
+          style={styles.imageBumbur}
           source={require("../../../../assets/images/icons/bombor.png")}
         />
         <Text style={styles.rowText}>Харуулд алхаад-МАРШ</Text>
@@ -207,7 +207,7 @@ const BureeBumbur = (props) => {
         }}
       >
         <Image
-          style={styles.image}
+          style={styles.imageBumbur}
           source={require("../../../../assets/images/icons/bombor.png")}
         />
         <Text style={styles.rowText}>Аяны марш-№1</Text>
@@ -220,7 +220,7 @@ const BureeBumbur = (props) => {
         }}
       >
         <Image
-          style={styles.image}
+          style={styles.imageBumbur}
           source={require("../../../../assets/images/icons/bombor.png")}
         />
         <Text style={styles.rowText}>Аяны марш-№2</Text>
@@ -233,7 +233,7 @@ const BureeBumbur = (props) => {
         }}
       >
         <Image
-          style={styles.image}
+          style={styles.imageBumbur}
           source={require("../../../../assets/images/icons/bombor.png")}
         />
         <Text style={styles.rowText}>Түгшүүр</Text>
@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
   listBtn: {
     flexDirection: "row",
     alignItems: "center",
-    flex: 1,
+    // flex: 1,
     padding: 10,
     height: 60,
     //marginBottom: 5,
@@ -272,6 +272,13 @@ const styles = StyleSheet.create({
     marginRight: 10,
     width: 70,
     height: 30,
+    justifyContent: "center",
+  },
+
+  imageBumbur: {
+    marginRight: 15,
+    width: 65,
+    height: 50,
     justifyContent: "center",
   },
 });

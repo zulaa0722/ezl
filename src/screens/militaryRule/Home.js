@@ -17,6 +17,9 @@ const Home = (props) => {
   const clickTestShow = () => {
     props.navigation.navigate("ExamScreen");
   };
+  const clickJagsaaliinAjillaga = () => {
+    props.navigation.navigate("JagsaaliinAjillaga");
+  };
   const clickBureeBumbur = () => {
     props.navigation.navigate("BureeBumbur");
   };
@@ -70,7 +73,10 @@ const Home = (props) => {
           </LinearGradient>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.newButton}>
+        <TouchableOpacity
+          style={styles.newButton}
+          onPress={clickJagsaaliinAjillaga}
+        >
           <LinearGradient
             colors={["#4c669f", "#3b5998", "#192f6a"]}
             style={styles.btnGradient}

@@ -23,6 +23,9 @@ import BureeBumbur from "./src/screens/militaryRule/BureeBumbur/BureeBumbur";
 import BureeBumberPlay from "./src/screens/militaryRule/BureeBumbur/BureeBumberPlay";
 import ShowQuestionSwiper from "./src/screens/militaryRule/TestYourself/ShowQuestionSwiper";
 
+// Жагсаалын ажиллагаа
+import JagsaaliinAjillaga from "./src/screens/militaryRule/JagsaalAjillagaa/JagsaaliinAjillaga";
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -81,6 +84,11 @@ export default function App() {
         <Stack.Screen name="ShowQuestions" component={ShowQuestions} />
         <Stack.Screen name="BureeBumbur" component={BureeBumbur} />
         <Stack.Screen name="BureeBumberPlay" component={BureeBumberPlay} />
+        <Stack.Screen
+          name="JagsaaliinAjillaga"
+          component={JagsaaliinAjillaga}
+        />
+
         <Stack.Screen
           name="ShowQuestionSwiper"
           component={ShowQuestionSwiper}

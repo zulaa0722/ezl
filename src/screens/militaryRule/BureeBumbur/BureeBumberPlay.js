@@ -17,6 +17,7 @@ import React, { useEffect } from "react";
 
 const BureeBumberPlay = (props) => {
   const [sound, setSound] = React.useState();
+
   // async function playSound() {
   //   console.log("Loading Sound");
   //   const { sound } = await Audio.Sound.createAsync(
@@ -62,10 +63,140 @@ const BureeBumberPlay = (props) => {
       </View>
       <Text style={styles.headerTxt}>{props.route.params.name}</Text>
       {props.route.params.id == 1 && (
-        <>
+        <View style={styles.imgBck}>
           <Image
             style={styles.imageStyleShuu}
             source={require("../../../../assets/images/raw/e_neg.png")}
+          />
+        </View>
+      )}
+      {props.route.params.id == 2 && (
+        <>
+          <Image
+            style={{ width: "100%", height: "7%" }}
+            source={require("../../../../assets/images/raw/e_hoer.png")}
+          />
+        </>
+      )}
+      {props.route.params.id == 3 && (
+        <>
+          <Image
+            style={{ width: "100%", height: "7%" }}
+            source={require("../../../../assets/images/raw/e_gurav.png")}
+          />
+        </>
+      )}
+      {props.route.params.id == 4 && (
+        <>
+          <Image
+            style={{ width: "100%", height: "15%" }}
+            source={require("../../../../assets/images/raw/e_duruv.png")}
+          />
+        </>
+      )}
+      {props.route.params.id == 5 && (
+        <>
+          <Image
+            style={{ width: "100%", height: "23%" }}
+            source={require("../../../../assets/images/raw/e_tav.png")}
+          />
+        </>
+      )}
+
+      {props.route.params.id == 6 && (
+        <>
+          <Image
+            style={{ width: "100%", height: "7%" }}
+            source={require("../../../../assets/images/raw/e_zurgaa.png")}
+          />
+        </>
+      )}
+      {props.route.params.id == 7 && (
+        <>
+          <Image
+            style={{ width: "100%", height: "7%" }}
+            source={require("../../../../assets/images/raw/e_zurgaa.png")}
+          />
+        </>
+      )}
+      {props.route.params.id == 8 && (
+        <>
+          <Image
+            style={{ width: "100%", height: "16%" }}
+            source={require("../../../../assets/images/raw/e_naim.png")}
+          />
+        </>
+      )}
+      {props.route.params.id == 9 && (
+        <>
+          <Image
+            style={{ width: "100%", height: "7%" }}
+            source={require("../../../../assets/images/raw/e_ec.png")}
+          />
+        </>
+      )}
+      {props.route.params.id == 10 && (
+        <>
+          <Image
+            style={{ width: "100%", height: "9%" }}
+            source={require("../../../../assets/images/raw/e_arav.png")}
+          />
+        </>
+      )}
+      {props.route.params.id == 11 && (
+        <>
+          <Image
+            style={{ width: "100%", height: "15%" }}
+            source={require("../../../../assets/images/raw/e_arvanneg.png")}
+          />
+        </>
+      )}
+      {props.route.params.id == 12 && (
+        <>
+          <Image
+            style={{ width: "100%", height: "15%" }}
+            source={require("../../../../assets/images/raw/e_arvanhoer.png")}
+          />
+        </>
+      )}
+
+      {props.route.params.id == 13 && (
+        <>
+          <Image
+            style={{ width: "100%", height: "15%" }}
+            source={require("../../../../assets/images/raw/b_neg.png")}
+          />
+        </>
+      )}
+      {props.route.params.id == 14 && (
+        <>
+          <Image
+            style={{ width: "100%", height: "15%" }}
+            source={require("../../../../assets/images/raw/b_hoer.png")}
+          />
+        </>
+      )}
+      {props.route.params.id == 15 && (
+        <>
+          <Image
+            style={{ width: "100%", height: "15%" }}
+            source={require("../../../../assets/images/raw/b_gurav.png")}
+          />
+        </>
+      )}
+      {props.route.params.id == 16 && (
+        <>
+          <Image
+            style={{ width: "100%", height: "15%" }}
+            source={require("../../../../assets/images/raw/b_duruv.png")}
+          />
+        </>
+      )}
+      {props.route.params.id == 17 && (
+        <>
+          <Image
+            style={{ width: "100%", height: "15%" }}
+            source={require("../../../../assets/images/raw/b_tav.png")}
           />
         </>
       )}
@@ -132,11 +263,14 @@ const styles = StyleSheet.create({
     height: 30,
     justifyContent: "center",
   },
-  imageStyleShuu: {
-    // textAlign: "center",
+  imgBck: {
+    flex: 1,
     width: "100%",
-    height: "35%",
+  },
+  imageStyleShuu: {
     // flex: 1,
+    width: "100%",
+    height: "70%",
   },
   headerTxt: {
     textAlign: "center",
