@@ -43,9 +43,7 @@ const ShowQuestionSwiper = (props) => {
         showsPagination={false}
       >
         {questions.map((el, index) => (
-          <>
-            <ShowQuestion key={el.id} item={el} />
-          </>
+          <ShowQuestion key={el.id} item={el} />
         ))}
       </Swiper>
     </>
