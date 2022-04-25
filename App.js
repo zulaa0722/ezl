@@ -19,12 +19,9 @@ import TestYourself from "./src/screens/militaryRule/TestYourself/TestYourselfSc
 import TitleShowScreen from "./src/screens/militaryRule/TestYourself/TitleShowScreen";
 import ExamScreen from "./src/screens/militaryRule/Exam/ExamScreen";
 import ShowQuestions from "./src/screens/militaryRule/TestYourself/ShowQuestions";
-<<<<<<< HEAD
 import BureeBumbur from "./src/screens/militaryRule/BureeBumbur/BureeBumbur";
 import BureeBumberPlay from "./src/screens/militaryRule/BureeBumbur/BureeBumberPlay";
-=======
 import ShowQuestionSwiper from "./src/screens/militaryRule/TestYourself/ShowQuestionSwiper";
->>>>>>> b415131faa23167bf793bb26df389ab5e2e788f3
 
 const Stack = createNativeStackNavigator();
 
