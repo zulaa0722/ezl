@@ -8,7 +8,7 @@ import {
   Button,
 } from "react-native";
 import React, { useEffect } from "react";
-import { AudioPlayer } from "react-native-simple-audio-player";
+// import { AudioPlayer } from "react-native-simple-audio-player";
 // import { Audio } from "expo-av";
 // import SoundPlayer from "react-native-sound-player";
 // import { AudioPlayer } from "react-native-simple-audio-player";
@@ -84,10 +84,9 @@ const BureeBumberPlay = (props) => {
           justifyContent: "center",
         }}
       >
-        <AudioPlayer
+        {/* <AudioPlayer
           url={"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"}
-        />
-        (0, _)
+        /> */}
       </View>
     </View>
   );
