@@ -4,14 +4,15 @@ import ShowResult from "./ShowResult";
 
 const ShowQuestion = (props) => {
   const [checkAns, setCheckAns] = useState(false);
-  const ansBtnFn = (ans, true_answer) => {
-    if (ans === true_answer) {
-      setCheckAns(true);
-      //   console.log(this.state.checkAns);
-    } else {
-      setCheckAns(false);
-    }
-  };
+  // const ansBtnFn = (ans, true_answer) => {
+  //   if (ans === true_answer) {
+  //     setCheckAns(true);
+  //     //   console.log(this.state.checkAns);
+  //   } else {
+  //     setCheckAns(false);
+  //   }
+  // };
+  // const ansBtnFn = (ans, true_answer) => {};
   return (
     // <View>
     //   <Text>{props.item.ans1} dfbdfb</Text>
@@ -21,10 +22,7 @@ const ShowQuestion = (props) => {
         <Text style={styles.questionsText}>{props.item.question}</Text>
       </View>
 
-      <TouchableOpacity
-        style={styles.ansBtn}
-        onPress={ansBtnFn(props.item.ans1, props.item.true_answer)}
-      >
+      <TouchableOpacity style={styles.ansBtn}>
         <Text style={styles.ansText}>{props.item.ans1}</Text>
       </TouchableOpacity>
 

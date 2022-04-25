@@ -22,7 +22,12 @@ const TitleShowScreen = (props) => {
   }, []);
 
   const clickOnRow = (id) => {
-    props.navigation.navigate("ShowQuestions", {
+    // props.navigation.navigate("ShowQuestions", {
+    //   chapterName: props.route.params.chapterName,
+    //   chapterID: props.route.params.chapterID,
+    //   bulegId: id,
+    // });
+    props.navigation.navigate("ShowQuestionSwiper", {
       chapterName: props.route.params.chapterName,
       chapterID: props.route.params.chapterID,
       bulegId: id,
