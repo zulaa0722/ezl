@@ -42,7 +42,7 @@ const ShowQuestionSwiper = (props) => {
         loop={false}
         showsPagination={false}
       >
-        {questions.map((el) => (
+        {questions.map((el, index) => (
           <>
             <ShowQuestion key={el.id} item={el} />
           </>
