@@ -3,30 +3,6 @@ import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import AppIntroSlider from "react-native-app-intro-slider";
 import { selectQuestions } from "../../../helpers/dbMilitaryRule";
 
-const slides = [
-  {
-    key: 1,
-    title: "Title 1",
-    text: "Description.\nSay something cool",
-    // image: require("./assets/1.jpg"),
-    backgroundColor: "#59b2ab",
-  },
-  {
-    key: 2,
-    title: "Title 2",
-    text: "Other cool stuff",
-    // image: require("./assets/2.jpg"),
-    backgroundColor: "#febe29",
-  },
-  {
-    key: 3,
-    title: "Rocket guy",
-    text: "I'm already out of descriptions\n\nLorem ipsum bla bla bla",
-    // image: require("./assets/3.jpg"),
-    backgroundColor: "#22bcb5",
-  },
-];
-
 export default class App extends React.Component {
   state = {
     showRealApp: false,
@@ -44,9 +20,10 @@ export default class App extends React.Component {
   _renderItem = ({ item }) => {
     return (
       <View key={item.id} style={styles.slide}>
-        <Text style={styles.title}>{item.question}</Text>
+        <View style={styles.questionsStyle}>
+          <Text style={styles.questionsText}>{item.question}</Text>
+        </View>
         {/* <Image source={item.image} /> */}
-        <Text style={styles.text}>{item.question}</Text>
       </View>
     );
   };
@@ -60,10 +37,15 @@ export default class App extends React.Component {
       return <App />;
     } else {
       return (
-        <>
-          <View style={styles.header}>
-            <TouchableOpacity>
-              <Text>asdas</Text>
+        <View style={styles.container}>
+          <View style={styles.headerRow}>
+            <TouchableOpacity style={styles.backButton}>
+              <Text>Буцах</Text>
+            </TouchableOpacity>
+            <Text style={styles.line}> </Text>
+            <Text style={styles.text}>Шалгалт</Text>
+            <TouchableOpacity style={styles.backButton}>
+              <Text>Дуусгах</Text>
             </TouchableOpacity>
           </View>
           <AppIntroSlider
@@ -71,24 +53,79 @@ export default class App extends React.Component {
             data={this.state.questions}
             onDone={this._onDone}
           />
-        </>
+        </View>
       );
     }
   }
 }
 
 const styles = StyleSheet.create({
-  buttonCircle: {
-    width: 40,
-    height: 40,
-    backgroundColor: "rgba(0, 0, 0, .2)",
-    borderRadius: 20,
+  container: {
+    flex: 1,
+  },
+
+  backButton: {
+    backgroundColor: "#00aeef",
+    padding: 15,
+    height: 45,
+  },
+  headerRow: {
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "row",
+    height: 45,
+    width: "100%",
+    backgroundColor: "green",
   },
-  header: {
-    // flex: 1,
-    flexDirection: "column",
+  text: {
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "bold",
+    flex: 1,
+    color: "#fff",
+    padding: 2,
   },
-  //[...]
+  line: {
+    width: 1,
+    backgroundColor: "#fff",
+    marginRight: 3,
+    height: "100%",
+  },
+
+  slide: {
+    flex: 1,
+    padding: 5,
+    backgroundColor: "#fff",
+    overflow: "hidden",
+  },
+
+  quesText: {
+    color: "black",
+    fontSize: 14,
+    fontWeight: "bold",
+    borderRadius: 5,
+  },
+  ansBtn: {
+    marginBottom: 5,
+    borderRadius: 5,
+    padding: 5,
+    marginLeft: 20,
+    marginRight: 20,
+    backgroundColor: "green",
+  },
+  ansText: {
+    color: "#fff",
+    fontSize: 13,
+  },
+  questionsStyle: {
+    borderRadius: 10,
+    borderColor: "green",
+    borderWidth: 2,
+    padding: 5,
+    marginBottom: 5,
+  },
+  questionsText: {
+    color: "black",
+    fontSize: 13,
+  },
 });
