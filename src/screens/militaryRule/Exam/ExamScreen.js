@@ -11,6 +11,7 @@ import ShowResult from "./ShowResult";
 
 let resultArr = [];
 const ExamScreen = (props) => {
+  resultArr = [];
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
@@ -26,6 +27,7 @@ const ExamScreen = (props) => {
           };
           resultArr.push(rowEl);
         });
+        console.log(resultArr);
       })
       .catch((err) => {});
   }, []);
@@ -38,9 +40,9 @@ const ExamScreen = (props) => {
         point++;
       }
     }
-    resultArr = [];
+    // resultArr = [];
     console.log(point);
-    props.navigation.navigate("ShowResult", { point: point });
+    // props.navigation.navigate("ShowResult", { point: point });
   };
 
   const clickAnswer = (qid, userAnswer, trueAnswer) => {

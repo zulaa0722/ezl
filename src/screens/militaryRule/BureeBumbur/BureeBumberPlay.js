@@ -7,7 +7,10 @@ import {
   WebView,
   Button,
 } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import Slider from "react-native-slider";
+import AudioRecorderPlayer from "react-native-audio-recorder-player";
 // import { AudioPlayer } from "react-native-simple-audio-player";
 // import { Audio } from "expo-av";
 // import SoundPlayer from "react-native-sound-player";
@@ -286,5 +289,19 @@ const styles = StyleSheet.create({
     backgroundColor: "green",
     borderBottomColor: "grey",
     borderBottomWidth: 2,
+  },
+  playButtonContainer: {
+    backgroundColor: "#FFF",
+    borderColor: "rgba(93, 63, 106, 0.2)",
+    borderWidth: 16,
+    width: 128,
+    height: 128,
+    borderRadius: 64,
+    alignItems: "center",
+    justifyContent: "center",
+    marginHorizontal: 32,
+    shadowColor: "#5D3F6A",
+    shadowRadius: 30,
+    shadowOpacity: 0.5,
   },
 });
