@@ -22,6 +22,7 @@ import ShowQuestions from "./src/screens/militaryRule/TestYourself/ShowQuestions
 import BureeBumbur from "./src/screens/militaryRule/BureeBumbur/BureeBumbur";
 import BureeBumberPlay from "./src/screens/militaryRule/BureeBumbur/BureeBumberPlay";
 import ShowQuestionSwiper from "./src/screens/militaryRule/TestYourself/ShowQuestionSwiper";
+import ShowResult from "./src/screens/militaryRule/Exam/ShowResult";
 
 // Жагсаалын ажиллагаа
 import JagsaaliinAjillaga from "./src/screens/militaryRule/JagsaalAjillagaa/JagsaaliinAjillaga";
@@ -84,6 +85,7 @@ export default function App() {
         <Stack.Screen name="ShowQuestions" component={ShowQuestions} />
         <Stack.Screen name="BureeBumbur" component={BureeBumbur} />
         <Stack.Screen name="BureeBumberPlay" component={BureeBumberPlay} />
+        <Stack.Screen name="ShowResult" component={ShowResult} />
         <Stack.Screen
           name="JagsaaliinAjillaga"
           component={JagsaaliinAjillaga}
