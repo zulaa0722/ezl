@@ -42,7 +42,7 @@ const ExamScreen = (props) => {
     }
     // resultArr = [];
     console.log(point);
-    // props.navigation.navigate("ShowResult", { point: point });
+    props.navigation.navigate("ShowResult", { point: point });
   };
 
   const clickAnswer = (qid, userAnswer, trueAnswer) => {

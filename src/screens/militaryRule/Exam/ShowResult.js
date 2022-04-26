@@ -1,14 +1,17 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const ShowResult = (props) => {
+  const [percent, setPoint] = useState(0);
+
+  useEffect(() => {}, []);
   return (
     <View>
       <View style={styles.headerRow}>
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => {
-            // props.navigation.navigate("regulationHome");
+            props.navigation.navigate("MilitaryHome");
           }}
         >
           <Text style={styles.backtxt}>Буцах</Text>
@@ -20,14 +23,18 @@ const ShowResult = (props) => {
         {/* </LinearGradient> */}
       </View>
       <Text style={styles.scoreTxt}>ТАНЫ ШАЛГАЛТЫН ДҮН /хувиар/:</Text>
-      <Text style={styles.scoreTxt}>{props.route.params.point} %</Text>
+      <Text style={styles.scoreTxt}>
+        {(props.route.params.point * 100) / 25} %
+      </Text>
       <View style={styles.onRowView1}>
         <Text style={styles.scoreTrueTxtLable}>Зөв хариулсан:</Text>
-        <Text style={styles.scoreTrueTxtScore}>25</Text>
+        <Text style={styles.scoreTrueTxtScore}>{props.route.params.point}</Text>
       </View>
       <View style={styles.onRowView2}>
         <Text style={styles.scoreTrueTxtLable}>Буруу хариулсан:</Text>
-        <Text style={styles.scoreTrueTxtScore}>25</Text>
+        <Text style={styles.scoreTrueTxtScore}>
+          {25 - props.route.params.point}
+        </Text>
       </View>
     </View>
   );

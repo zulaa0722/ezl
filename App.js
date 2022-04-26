@@ -23,6 +23,7 @@ import BureeBumbur from "./src/screens/militaryRule/BureeBumbur/BureeBumbur";
 import BureeBumberPlay from "./src/screens/militaryRule/BureeBumbur/BureeBumberPlay";
 import ShowQuestionSwiper from "./src/screens/militaryRule/TestYourself/ShowQuestionSwiper";
 import ShowResult from "./src/screens/militaryRule/Exam/ShowResult";
+import TestSound from "./src/screens/militaryRule/BureeBumbur/TestSound";
 
 // Жагсаалын ажиллагаа
 import JagsaaliinAjillaga from "./src/screens/militaryRule/JagsaalAjillagaa/JagsaaliinAjillaga";
@@ -75,6 +76,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{}} initialRouteName="home">
+        <Stack.Screen name="TestSound" component={TestSound} />
         <Stack.Screen name="home" component={HomeScreen} />
         <Stack.Screen name="regulationHome" component={RegulationHome} />
         <Stack.Screen name="regulationReading" component={RegulationReading} />
