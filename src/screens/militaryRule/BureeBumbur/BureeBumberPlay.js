@@ -11,6 +11,7 @@ import React, { useEffect, useState } from "react";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Slider from "react-native-slider";
 import AudioRecorderPlayer from "react-native-audio-recorder-player";
+import SliderSound from "./SliderSound";
 // import { AudioPlayer } from "react-native-simple-audio-player";
 // import { Audio } from "expo-av";
 // import SoundPlayer from "react-native-sound-player";
@@ -20,6 +21,7 @@ import AudioRecorderPlayer from "react-native-audio-recorder-player";
 
 const BureeBumberPlay = (props) => {
   const [sound, setSound] = React.useState();
+  const [sliderVal, setSliderVal] = useState("");
 
   // async function playSound() {
   //   console.log("Loading Sound");
@@ -71,6 +73,8 @@ const BureeBumberPlay = (props) => {
             style={styles.imageStyleShuu}
             source={require("../../../../assets/images/raw/e_neg.png")}
           />
+
+          <SliderSound />
         </View>
       )}
       {props.route.params.id == 2 && (
@@ -277,8 +281,9 @@ const styles = StyleSheet.create({
   },
   headerTxt: {
     textAlign: "center",
-    fontSize: 16,
+    fontSize: 18,
     padding: 5,
+    fontWeight: "bold",
   },
   listBtn: {
     flexDirection: "row",
