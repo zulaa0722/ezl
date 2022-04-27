@@ -12,10 +12,11 @@ import React, { useState, useEffect } from "react";
 import axios from "../../axios/axios-purchase";
 
 const LoginStart = (props) => {
-  const [number, setNumber] = useState(null);
+  const [number, setNumber] = useState("");
   const [err, setErr] = useState(null);
   const [money, setMoney] = useState(null);
   const onChangeNumber = (e) => {
+    console.log(e.target.value);
     setNumber(e.target.value);
   };
 
@@ -74,7 +75,7 @@ const LoginStart = (props) => {
           <View style={styles.inputRow}>
             <TextInput
               style={styles.input}
-              onChange={onChangeNumber}
+              onChangeTex={onChangeNumber}
               value={number}
               placeholder="Утасны дугаар оруулан уу"
               highlightColor={"#00BCD4"}
