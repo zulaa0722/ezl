@@ -64,9 +64,8 @@ const TitleShowScreen = (props) => {
               clickOnRow(el.id);
             }}
           >
-            <Text style={styles.rowText}>
-              {el.name} = {el.count} асуулттай
-            </Text>
+            <Text style={styles.rowText}>{el.name}</Text>
+            <Text style={styles.rowTxtCount}>= {el.count} асуулттай</Text>
           </TouchableOpacity>
         ))}
       </ScrollView>
@@ -105,6 +104,13 @@ const styles = StyleSheet.create({
   rowText: {
     color: "black",
   },
+  rowTxtCount: {
+    color: "grey",
+    textAlign: "right",
+    fontSize: 9,
+    padding: 0,
+    margin: 0,
+  },
   line: {
     width: 1,
     backgroundColor: "#fff",
@@ -119,6 +125,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   listBtn: {
+    // flexDirection: "row",
     // flex: 1,
     padding: 10,
     //marginBottom: 5,

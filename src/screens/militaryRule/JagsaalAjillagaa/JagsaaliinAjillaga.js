@@ -59,52 +59,55 @@ const slides = [
   },
   {
     key: 12,
-    title: "",
+    title: "Автоматыг оосорт тааруулах-Буу шалгах",
     image: require("../../../../assets/images/gif/pic11.gif"),
   },
   {
     key: 13,
-    title: "",
+    title: "Буу тавих байдал",
     image: require("../../../../assets/images/gif/pic12.gif"),
   },
   {
     key: 14,
-    title: "",
+    title: "Байран дээрх буюу хөдөлгөөн дундах ёсолгоо",
     image: require("../../../../assets/images/gif/pic13.gif"),
   },
+
   {
     key: 15,
-    title: "",
+    title: "Байлдааны Тугийг жагсаалд авч зогсох байдал",
     image: require("../../../../assets/images/gif/pic14.gif"),
   },
   {
     key: 16,
-    title: "",
+    title: "Ёслолын жагсаалаар явах үед байлдааны тугийг барих байдал",
     image: require("../../../../assets/images/gif/pic15.gif"),
   },
   {
     key: 17,
-    title: "",
+    title:
+      "Бөмбөр, бүрээг үүрч Жагсаалын үндсэн зогсолтоор зогсох, Тоглолтын үед, Дохио өгөх үед бүрээг барьж зогсох",
     image: require("../../../../assets/images/gif/pic16.gif"),
   },
   {
     key: 18,
-    title: "",
+    title: "Бууг хөлд, мөрөнд, гарт авах ажиллагаа",
     image: require("../../../../assets/images/gif/pic17.gif"),
   },
   {
     key: 19,
-    title: "",
+    title: "Бууг мөрөнд авах ажиллагаа",
     image: require("../../../../assets/images/gif/pic18.gif"),
   },
   {
     key: 20,
-    title: "",
+    title: "Бууг харуулд авч ёслох",
     image: require("../../../../assets/images/gif/pic19.gif"),
   },
+
   {
     key: 21,
-    title: "",
+    title: "Сэлэм сугалах",
     image: require("../../../../assets/images/gif/pic20.gif"),
   },
 ];
@@ -137,18 +140,33 @@ export default JagsaaliinAjillaga;
 const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: "#fff",
+    // justifyContent: "space-around",
+    // height: "100%",
+    // width: "100%",
+    // display: "flex",
+    justifyContent: "center",
   },
   container: {
-    justifyContent: "center",
-    alignItems: "center",
+    // justifyContent: "center",
+    // alignItems: "center",
+    // textAlign: "center",
+    // height: "100%",
+    // width: "100%",
+    // flexDirection: "vertical",
+    // flex: 1,
+    resizeMode: "stretch",
   },
   titleTxt: {
+    padding: 5,
     fontSize: 18,
     fontWeight: "bold",
+    textAlign: "center",
   },
   image: {
-    marginTop: 20,
-    width: "60%",
+    // flex: 1,
+    width: "100%",
     height: "90%",
+    resizeMode: "contain",
+    //
   },
 });
