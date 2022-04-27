@@ -1,4 +1,10 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import React, { useState, useEffect } from "react";
 import { selectTitles } from "../../../helpers/dbMilitaryRule";
 
@@ -19,11 +25,11 @@ const ChildLists = (props) => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {childLists.map((el) => (
         <ChildItem clickChild={props.clickChild} key={el.id} item={el} />
       ))}
-    </View>
+    </ScrollView>
   );
 };
 

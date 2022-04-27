@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -6,11 +6,11 @@ import ParentItem from "./ParentItem";
 
 const ParentLists = (props) => {
   return (
-    <View>
+    <ScrollView>
       {parents.map((el) => (
         <ParentItem key={el.id} clickChild={props.clickChild} item={el} />
       ))}
-    </View>
+    </ScrollView>
   );
 };
 
