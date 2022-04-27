@@ -15,39 +15,36 @@ const LoginStart = (props) => {
   const [number, setNumber] = useState("");
   const [err, setErr] = useState(null);
   const [money, setMoney] = useState(null);
-  const onChangeNumber = (e) => {
-    console.log(e.target.value);
-    setNumber(e.target.value);
-  };
 
   const clickLogin = () => {
     setErr(null);
     setMoney(null);
     axios
-      .post("/check/purchase", {
-        phone: number,
-      })
+      .post("/check/purchase", { phone: number })
       .then((res) => {
         // errorMoney
         // success
         // error
         console.log(res.data);
         if (res.data.status === "moneyError") {
-          setErr(res.data.msg);
+          setErr(
+            res.data.msg +
+              ` Та ${res.data.money} төгрөг төлсөн байна. Программын үнэ 5000 төгрөг`
+          );
           setMoney(res.data.money);
           return;
         }
-        // if (res.data.status === "error") {
-        //   setErr(res.data.msg);
-        //   setMoney(null);
-        //   return;
-        // }
-        // if (res.data.status === "success") {
-        //   setErr(null);
-        //   setMoney(null);
-        //   props.navigation.navigate("home");
-        //   return;
-        // }
+        if (res.data.status === "error") {
+          setErr(res.data.msg);
+          setMoney(null);
+          return;
+        }
+        if (res.data.status === "success") {
+          setErr(null);
+          setMoney(null);
+          props.navigation.navigate("home");
+          return;
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -67,7 +64,7 @@ const LoginStart = (props) => {
             source={require("../../../assets/images/icons/Mongolian_Armed_forces_emblem.png")}
           />
           <View>
-            <Text style={styles.nameTxt}> МОНГОЛ УЛСЫН </Text>
+            <Text style={styles.nameTxt}> МОНГОЛ УЛСЫН</Text>
             <Text style={styles.nameTxt}> ЗЭВСЭГТ ХҮЧИН</Text>
           </View>
         </View>
@@ -75,7 +72,9 @@ const LoginStart = (props) => {
           <View style={styles.inputRow}>
             <TextInput
               style={styles.input}
-              onChangeTex={onChangeNumber}
+              onChangeText={(text) => {
+                setNumber(text);
+              }}
               value={number}
               placeholder="Утасны дугаар оруулан уу"
               highlightColor={"#00BCD4"}
