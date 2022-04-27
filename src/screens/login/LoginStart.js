@@ -8,13 +8,16 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const LoginStart = () => {
   const [number, setNumber] = useState(null);
   const onChangeNumber = (e) => {
     setNumber(e.target.value);
   };
+
+  const clickLogin = () => {};
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -46,7 +49,7 @@ const LoginStart = () => {
             />
             <TouchableOpacity
               onPress={() => {
-                // clickMenu(4, "Цэргийн сахилгын дүрэм");
+                clickLogin();
               }}
               style={styles.submitButton}
             >
