@@ -9,14 +9,49 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useState, useEffect } from "react";
+import axios from "../../axios/axios-purchase";
 
-const LoginStart = () => {
+const LoginStart = (props) => {
   const [number, setNumber] = useState(null);
+  const [err, setErr] = useState(null);
+  const [money, setMoney] = useState(null);
   const onChangeNumber = (e) => {
     setNumber(e.target.value);
   };
 
-  const clickLogin = () => {};
+  const clickLogin = () => {
+    setErr(null);
+    setMoney(null);
+    axios
+      .post("/check/purchase", {
+        phone: number,
+      })
+      .then((res) => {
+        // errorMoney
+        // success
+        // error
+        console.log(res.data);
+        if (res.data.status === "moneyError") {
+          setErr(res.data.msg);
+          setMoney(res.data.money);
+          return;
+        }
+        // if (res.data.status === "error") {
+        //   setErr(res.data.msg);
+        //   setMoney(null);
+        //   return;
+        // }
+        // if (res.data.status === "success") {
+        //   setErr(null);
+        //   setMoney(null);
+        //   props.navigation.navigate("home");
+        //   return;
+        // }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <View style={styles.container}>
@@ -56,6 +91,7 @@ const LoginStart = () => {
               <Text>Нэвтрэх</Text>
             </TouchableOpacity>
           </View>
+          {err && <Text style={styles.errMsg}>{err}</Text>}
           <Text style={styles.lableDescription}>Ашиглах заавар:</Text>
           <View style={styles.inputRow}>
             <ScrollView style={styles.txtScrollView}>
@@ -177,5 +213,12 @@ const styles = StyleSheet.create({
     borderColor: "#fff",
     alignItems: "center",
     color: "#30396f",
+  },
+  errMsg: {
+    color: "red",
+    padding: 5,
+    paddingLeft: 10,
+    backgroundColor: "#fff012",
+    marginTop: 5,
   },
 });
