@@ -1,58 +1,8 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  WebView,
-  Button,
-} from "react-native";
-import React, { useEffect, useState } from "react";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import Slider from "react-native-slider";
-import AudioRecorderPlayer from "react-native-audio-recorder-player";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import React from "react";
 import SliderSound from "./SliderSound";
-// import { AudioPlayer } from "react-native-simple-audio-player";
-// import { Audio } from "expo-av";
-// import SoundPlayer from "react-native-sound-player";
-// import { AudioPlayer } from "react-native-simple-audio-player";
-// import mp3Url from "../../../../assets/images/raw/hicheel_ehel.mp3";
-// import SoundPlayer from "react-native-sound-player";
 
 const BureeBumberPlay = (props) => {
-  const [sound, setSound] = React.useState();
-  const [sliderVal, setSliderVal] = useState("");
-
-  // async function playSound() {
-  //   console.log("Loading Sound");
-  //   const { sound } = await Audio.Sound.createAsync(
-  //     require("../../../../assets/images/raw/hicheel_ehel.mp3")
-  //   );
-  //   setSound(sound);
-
-  //   console.log("Playing Sound");
-  //   await sound.playAsync();
-  // }
-
-  // useEffect(() => {
-  //   return sound
-  //     ? () => {
-  //         console.log("Unloading Sound");
-  //         sound.unloadAsync();
-  //       }
-  //     : undefined;
-  // }, [sound]);
-  // const play = () => {
-  //   try {
-  //     // play the file tone.mp3
-  //     SoundPlayer.playSoundFile("tone", "mp3");
-  //     // or play from url
-  //     SoundPlayer.playUrl("../../../../assets/images/raw/hicheel_ehel.mp3");
-  //   } catch (e) {
-  //     console.log(`cannot play the sound file`, e);
-  //   }
-  // };
-
   return (
     <View style={styles.bodyStyle}>
       <View style={styles.headerRow}>
@@ -67,164 +17,12 @@ const BureeBumberPlay = (props) => {
         {/* </LinearGradient> */}
       </View>
       <Text style={styles.headerTxt}>{props.route.params.name}</Text>
-      {props.route.params.id == 1 && (
-        <View style={styles.imgBck}>
-          <Image
-            style={styles.imageStyleShuu}
-            source={require("../../../../assets/images/raw/e_neg.png")}
-          />
-
-          <SliderSound />
-        </View>
-      )}
-      {props.route.params.id == 2 && (
-        <>
-          <Image
-            style={{ width: "100%", height: "7%" }}
-            source={require("../../../../assets/images/raw/e_hoer.png")}
-          />
-        </>
-      )}
-      {props.route.params.id == 3 && (
-        <>
-          <Image
-            style={{ width: "100%", height: "7%" }}
-            source={require("../../../../assets/images/raw/e_gurav.png")}
-          />
-        </>
-      )}
-      {props.route.params.id == 4 && (
-        <>
-          <Image
-            style={{ width: "100%", height: "15%" }}
-            source={require("../../../../assets/images/raw/e_duruv.png")}
-          />
-        </>
-      )}
-      {props.route.params.id == 5 && (
-        <>
-          <Image
-            style={{ width: "100%", height: "23%" }}
-            source={require("../../../../assets/images/raw/e_tav.png")}
-          />
-        </>
-      )}
-
-      {props.route.params.id == 6 && (
-        <>
-          <Image
-            style={{ width: "100%", height: "7%" }}
-            source={require("../../../../assets/images/raw/e_zurgaa.png")}
-          />
-        </>
-      )}
-      {props.route.params.id == 7 && (
-        <>
-          <Image
-            style={{ width: "100%", height: "7%" }}
-            source={require("../../../../assets/images/raw/e_zurgaa.png")}
-          />
-        </>
-      )}
-      {props.route.params.id == 8 && (
-        <>
-          <Image
-            style={{ width: "100%", height: "16%" }}
-            source={require("../../../../assets/images/raw/e_naim.png")}
-          />
-        </>
-      )}
-      {props.route.params.id == 9 && (
-        <>
-          <Image
-            style={{ width: "100%", height: "7%" }}
-            source={require("../../../../assets/images/raw/e_ec.png")}
-          />
-        </>
-      )}
-      {props.route.params.id == 10 && (
-        <>
-          <Image
-            style={{ width: "100%", height: "9%" }}
-            source={require("../../../../assets/images/raw/e_arav.png")}
-          />
-        </>
-      )}
-      {props.route.params.id == 11 && (
-        <>
-          <Image
-            style={{ width: "100%", height: "15%" }}
-            source={require("../../../../assets/images/raw/e_arvanneg.png")}
-          />
-        </>
-      )}
-      {props.route.params.id == 12 && (
-        <>
-          <Image
-            style={{ width: "100%", height: "15%" }}
-            source={require("../../../../assets/images/raw/e_arvanhoer.png")}
-          />
-        </>
-      )}
-
-      {props.route.params.id == 13 && (
-        <>
-          <Image
-            style={{ width: "100%", height: "15%" }}
-            source={require("../../../../assets/images/raw/b_neg.png")}
-          />
-        </>
-      )}
-      {props.route.params.id == 14 && (
-        <>
-          <Image
-            style={{ width: "100%", height: "15%" }}
-            source={require("../../../../assets/images/raw/b_hoer.png")}
-          />
-        </>
-      )}
-      {props.route.params.id == 15 && (
-        <>
-          <Image
-            style={{ width: "100%", height: "15%" }}
-            source={require("../../../../assets/images/raw/b_gurav.png")}
-          />
-        </>
-      )}
-      {props.route.params.id == 16 && (
-        <>
-          <Image
-            style={{ width: "100%", height: "15%" }}
-            source={require("../../../../assets/images/raw/b_duruv.png")}
-          />
-        </>
-      )}
-      {props.route.params.id == 17 && (
-        <>
-          <Image
-            style={{ width: "100%", height: "15%" }}
-            source={require("../../../../assets/images/raw/b_tav.png")}
-          />
-        </>
-      )}
-      {/* <AudioPlayer url={"https://gsmaf.gov.mn/1/mp3/negdelt_buree.mp3"} /> */}
-      {/* <WebView
-        source={{
-          uri: "https://gsmaf.gov.mn/1/mp3/negdelt_buree.mp3",
-        }}
-      /> */}
-
-      {/* <Button title="Play Sound" onPress={playSound} /> */}
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: "#313131",
-          justifyContent: "center",
-        }}
-      >
-        {/* <AudioPlayer
-          url={"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"}
-        /> */}
+      <View style={styles.imgBck}>
+        <Image
+          style={styles.imageStyleShuu}
+          source={songTitleLists[props.route.params.id - 1].image}
+        />
+        <SliderSound id={props.route.params.id} />
       </View>
     </View>
   );
@@ -310,3 +108,74 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
   },
 });
+
+const songTitleLists = [
+  {
+    id: 1,
+    image: require("../../../../assets/images/raw/e_neg.png"),
+  },
+  {
+    id: 2,
+    image: require("../../../../assets/images/raw/e_hoer.png"),
+  },
+  {
+    id: 3,
+    image: require("../../../../assets/images/raw/e_gurav.png"),
+  },
+  {
+    id: 4,
+    image: require("../../../../assets/images/raw/e_duruv.png"),
+  },
+  {
+    id: 5,
+    image: require("../../../../assets/images/raw/e_tav.png"),
+  },
+  {
+    id: 6,
+    image: require("../../../../assets/images/raw/e_zurgaa.png"),
+  },
+  {
+    id: 7,
+    image: require("../../../../assets/images/raw/e_zurgaa.png"),
+  },
+  {
+    id: 8,
+    image: require("../../../../assets/images/raw/e_naim.png"),
+  },
+  {
+    id: 9,
+    image: require("../../../../assets/images/raw/e_ec.png"),
+  },
+  {
+    id: 10,
+    image: require("../../../../assets/images/raw/e_arav.png"),
+  },
+  {
+    id: 11,
+    image: require("../../../../assets/images/raw/e_arvanneg.png"),
+  },
+  {
+    id: 12,
+    image: require("../../../../assets/images/raw/e_arvanhoer.png"),
+  },
+  {
+    id: 13,
+    image: require("../../../../assets/images/raw/b_neg.png"),
+  },
+  {
+    id: 14,
+    image: require("../../../../assets/images/raw/b_hoer.png"),
+  },
+  {
+    id: 15,
+    image: require("../../../../assets/images/raw/b_gurav.png"),
+  },
+  {
+    id: 16,
+    image: require("../../../../assets/images/raw/b_duruv.png"),
+  },
+  {
+    id: 17,
+    image: require("../../../../assets/images/raw/b_tav.png"),
+  },
+];

@@ -10,6 +10,10 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 
 const Home = (props) => {
+  const clickMilitaryRule = () => {
+    props.navigation.navigate("ShowTitlesScreen");
+  };
+
   const clickTestYourself = () => {
     props.navigation.navigate("TestYourself");
   };
@@ -31,7 +35,7 @@ const Home = (props) => {
         resizeMode="cover"
         style={styles.bgImage}
       >
-        <TouchableOpacity style={styles.newButton}>
+        <TouchableOpacity style={styles.newButton} onPress={clickMilitaryRule}>
           <LinearGradient
             colors={["#4c669f", "#3b5998", "#192f6a"]}
             style={styles.btnGradient}

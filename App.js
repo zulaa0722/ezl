@@ -14,6 +14,8 @@ import MilitaryHome from "./src/screens/militaryRule/Home";
 
 // Цэргийн дүрэм components
 import axios from "./src/axios/axios-milRule";
+import ShowTitlesScreen from "./src/screens/militaryRule/MilitaryRule/ShowTitlesScreen";
+import ShowPdfScreen from "./src/screens/militaryRule/MilitaryRule/ShowPdfScreen";
 import * as dbMilRule from "./src/helpers/dbMilitaryRule";
 import TestYourself from "./src/screens/militaryRule/TestYourself/TestYourselfScreen";
 import TitleShowScreen from "./src/screens/militaryRule/TestYourself/TitleShowScreen";
@@ -78,6 +80,8 @@ export default function App() {
       <Stack.Navigator screenOptions={{}} initialRouteName="home">
         <Stack.Screen name="TestSound" component={TestSound} />
         <Stack.Screen name="home" component={HomeScreen} />
+        <Stack.Screen name="ShowTitlesScreen" component={ShowTitlesScreen} />
+        <Stack.Screen name="ShowPdfScreen" component={ShowPdfScreen} />
         <Stack.Screen name="regulationHome" component={RegulationHome} />
         <Stack.Screen name="regulationReading" component={RegulationReading} />
         <Stack.Screen name="MilitaryHome" component={MilitaryHome} />

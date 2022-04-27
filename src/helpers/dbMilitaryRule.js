@@ -80,7 +80,7 @@ export const selectTitles = (disId) => {
   const prom = new Promise((resolve, reject) => {
     const result = db.transaction((tx) => {
       tx.executeSql(
-        "SELECT *, (SELECT COUNT(*) FROM tbTests WHERE bulegID=t1.bulegID) as 'count' FROM tbTitles as t1 WHERE duremID=?",
+        "SELECT *, (SELECT COUNT(*) FROM tbTests as t2 WHERE t2.bulegID=t1.bulegID) as 'count' FROM tbTitles as t1 WHERE duremID=?",
         [disId],
         (_, result) => {
           // console.log(result.rows);
