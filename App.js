@@ -27,6 +27,10 @@ import ShowResult from "./src/screens/militaryRule/Exam/ShowResult";
 // Жагсаалын ажиллагаа
 import JagsaaliinAjillaga from "./src/screens/militaryRule/JagsaalAjillagaa/JagsaaliinAjillaga";
 
+// login
+// import LoginScreen from "./src/screens/login/LoginScreen";
+import LoginStart from "./src/screens/login/LoginStart";
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -74,7 +78,8 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{}} initialRouteName="home">
+      <Stack.Navigator screenOptions={{}} initialRouteName="loginPage">
+        <Stack.Screen name="loginPage" component={LoginStart} />
         <Stack.Screen name="home" component={HomeScreen} />
         <Stack.Screen name="regulationHome" component={RegulationHome} />
         <Stack.Screen name="regulationReading" component={RegulationReading} />

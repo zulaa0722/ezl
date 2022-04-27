@@ -104,6 +104,24 @@ const Home = (props) => {
               <Text style={home_styles.text}>Цэргийн дүрэм</Text>
             </LinearGradient>
           </TouchableOpacity>
+          {/* <TouchableOpacity
+            style={home_styles.newButton}
+            onPress={() => {
+              props.navigation.navigate("MilitaryHome");
+            }}
+          >
+            <LinearGradient
+              colors={["#4c669f", "#3b5998", "#192f6a"]}
+              style={home_styles.btnGradient}
+            >
+              <Image
+                style={home_styles.image}
+                source={require("../../assets/images/law03.png")}
+              />
+              <Text style={home_styles.line}> </Text>
+              <Text style={home_styles.text}>Login</Text>
+            </LinearGradient>
+          </TouchableOpacity> */}
 
           <Text style={home_styles.copyRight}>
             Зэвсэгт хүчний © Программ Хангамжийн төв
