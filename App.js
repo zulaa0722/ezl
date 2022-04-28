@@ -11,6 +11,7 @@ import LoginScreen from "./src/screens/Login";
 import * as dbRegulation from "./src/helpers/dbRegulation";
 import RegulationReading from "./src/screens/regulation/RegulationReadingScreen";
 import MilitaryHome from "./src/screens/militaryRule/Home";
+import { initPurchaseDB } from "./src/helpers/dbPurchase";
 
 // Цэргийн дүрэм components
 import axios from "./src/axios/axios-milRule";
@@ -40,6 +41,7 @@ export default function App() {
   useEffect(() => {
     const initDB = dbRegulation.initDb();
     const a = loadMilitaryRuleData();
+    const shaa = initPurchaseDB();
 
     const titless = dbMilRule.selectTitles(1);
     console.log(titless);

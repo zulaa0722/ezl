@@ -11,6 +11,7 @@ import {
 import React, { useState, useEffect } from "react";
 import { WebView } from "react-native-webview";
 import axios from "../../axios/axios-purchase";
+import { insertPurchase, selectPurchase } from "../../helpers/dbPurchase";
 
 const LoginStart = (props) => {
   const [number, setNumber] = useState("");
@@ -20,6 +21,7 @@ const LoginStart = (props) => {
   const [instruction, setInstruction] = useState("");
 
   useEffect(() => {
+    checkIsLoggedIn();
     axios
       .post("/get/purchase/instruction")
       .then((res) => {
@@ -27,6 +29,16 @@ const LoginStart = (props) => {
       })
       .catch();
   }, []);
+
+  const checkIsLoggedIn = () => {
+    selectPurchase()
+      .then((res) => {
+        if (res._array.length > 0) {
+          props.navigation.navigate("home");
+        }
+      })
+      .catch();
+  };
 
   const clickLogin = () => {
     setErr(null);
@@ -51,10 +63,19 @@ const LoginStart = (props) => {
           setMoney(null);
           return;
         }
+        if (res.data.status === "errorLogin") {
+          setErr(res.data.msg);
+          setMoney(null);
+          return;
+        }
         if (res.data.status === "success") {
           setErr(null);
           setMoney(null);
-          props.navigation.navigate("home");
+          insertPurchase()
+            .then((res) => {
+              props.navigation.navigate("home");
+            })
+            .catch();
           return;
         }
       })
