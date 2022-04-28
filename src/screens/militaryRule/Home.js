@@ -31,7 +31,7 @@ const Home = (props) => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require("../../../assets/images/thd01.jpg")}
+        source={require("../../../assets/images/icons/thd032.jpg")}
         resizeMode="cover"
         style={styles.bgImage}
       >
@@ -156,10 +156,12 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    justifyContent: "flex-end",
   },
   bgImage: {
     flex: 1,
-    justifyContent: "center",
+    // justifyContent: "center",
+    justifyContent: "flex-end",
   },
   text: {
     textAlign: "center",

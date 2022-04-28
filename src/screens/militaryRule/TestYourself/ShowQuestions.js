@@ -54,6 +54,7 @@ export default class App extends React.Component {
 
   _renderItem = ({ item }) => {
     // const [isTrue, setIsTrue] = useState(false);
+
     return (
       <View key={item.id} style={styles.slide}>
         <View style={styles.questionsStyle}>

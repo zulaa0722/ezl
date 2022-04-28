@@ -36,22 +36,8 @@ const TitleShowScreen = (props) => {
 
   return (
     <View style={styles.container}>
-      {/* <Text>TitleShowScreen {props.route.params.chapterID}</Text>
-      <Text>hed bn ve {titles.length}</Text> */}
       <View style={styles.headerRow}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => {
-            // props.navigation.navigate("regulationHome");
-          }}
-        >
-          <Text>Буцах</Text>
-        </TouchableOpacity>
-        <Text style={styles.line}> </Text>
-
         <Text style={styles.text}> {props.route.params.chapterName}</Text>
-
-        {/* </LinearGradient> */}
       </View>
 
       <ScrollView style={styles.bodySide}>

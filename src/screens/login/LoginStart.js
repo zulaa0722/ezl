@@ -9,12 +9,24 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useState, useEffect } from "react";
+import { WebView } from "react-native-webview";
 import axios from "../../axios/axios-purchase";
 
 const LoginStart = (props) => {
   const [number, setNumber] = useState("");
   const [err, setErr] = useState(null);
   const [money, setMoney] = useState(null);
+
+  const [instruction, setInstruction] = useState("");
+
+  useEffect(() => {
+    axios
+      .post("/get/purchase/instruction")
+      .then((res) => {
+        setInstruction(res.data.msg);
+      })
+      .catch();
+  }, []);
 
   const clickLogin = () => {
     setErr(null);
@@ -50,6 +62,7 @@ const LoginStart = (props) => {
         console.log(err);
       });
   };
+  // var arr = instruction[0];
 
   return (
     <View style={styles.container}>
@@ -88,16 +101,28 @@ const LoginStart = (props) => {
               }}
               style={styles.submitButton}
             >
-              <Text>Нэвтрэх</Text>
+              <Text style={{ color: "#fff", fontWeight: "bold" }}>Нэвтрэх</Text>
             </TouchableOpacity>
           </View>
-          {err && <Text style={styles.errMsg}>{err}</Text>}
-          <Text style={styles.lableDescription}>Ашиглах заавар:</Text>
+          {err && (
+            <View style={styles.errMsgView}>
+              <Text style={styles.errMsg}>{err}</Text>
+            </View>
+          )}
+          <View style={styles.lableDescription}>
+            <Text style={{ color: "#000000" }}>Ашиглах заавар:</Text>
+          </View>
           <View style={styles.inputRow}>
             <ScrollView style={styles.txtScrollView}>
-              <Text style={{ color: "#000000" }}>
-                Заавартай холбоотой мэдээлэл энэ талбард гарж ирнэ.
-              </Text>
+              <WebView
+                numberOfLines={1}
+                adjustsFontSizeToFit
+                style={styles.webInstr}
+                originWhitelist={["*"]}
+                source={{
+                  html: "" + instruction,
+                }}
+              />
             </ScrollView>
           </View>
         </View>
@@ -178,7 +203,7 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     marginRight: 20,
     paddingRight: 10,
-    opacity: 0.6,
+    // opacity: 0.6,
     borderTopLeftRadius: 5,
     borderTopRightRadius: 5,
     color: "#000000",
@@ -193,7 +218,7 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     marginRight: 20,
     padding: 10,
-    opacity: 0.6,
+    // opacity: 0.7,
     // borderRadius: 5,
     borderTopRightRadius: 5,
     borderBottomRightRadius: 5,
@@ -214,11 +239,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     color: "#30396f",
   },
+  errMsgView: {
+    marginTop: 5,
+    marginLeft: 12,
+    marginRight: 20,
+    padding: 10,
+    backgroundColor: "#fff012",
+    borderRadius: 5,
+  },
   errMsg: {
     color: "red",
-    padding: 5,
-    paddingLeft: 10,
-    backgroundColor: "#fff012",
-    marginTop: 5,
+  },
+  webInstr: {
+    padding: 100,
+    color: "black",
+    fontSize: 28,
+    fontWeight: "bold",
+    borderRadius: 5,
   },
 });

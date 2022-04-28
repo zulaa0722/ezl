@@ -8,12 +8,18 @@ const ShowQuestion = (props) => {
   const [trueAns, setTrueAns] = useState(false);
   const [ansDiscription, setAnsDiscription] = useState(false);
 
+  // const [ans4, setans4] = useState(null);
+
   const ansBtnFn = (ans, true_answer, discription) => {
     setShowResult(true);
     setUserAns(ans);
     setTrueAns(true_answer);
     setAnsDiscription(discription);
   };
+  // console.log(props.item.ans4);
+
+  // setans4(props.item.ans4);
+
   // const ansBtnFn = (ans, true_answer) => {};
   return (
     // <View>
