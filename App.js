@@ -118,7 +118,7 @@ export default function App() {
             fontWeight: "bold",
           },
         }}
-        initialRouteName="loginPage"
+        initialRouteName="home"
       >
         <Stack.Screen
           options={{ headerShown: false, title: "" }}

@@ -1,12 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import React from "react";
 
 const ShowPdfScreen = () => {
-  return (
-    <View>
-      <Text>ShowPdfScreen</Text>
-    </View>
-  );
+  return <SafeAreaView style={{ flex: 1 }}></SafeAreaView>;
 };
 
 export default ShowPdfScreen;
