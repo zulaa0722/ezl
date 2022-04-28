@@ -124,10 +124,8 @@ const JagsaaliinAjillaga = () => {
     >
       {slides.map((el, index) => (
         // <ShowQuestion key={el.id} item={el} />
-        <View style={styles.container}>
-          <Text key={el.key} style={styles.titleTxt}>
-            {el.title}
-          </Text>
+        <View key={el.key} style={styles.container}>
+          <Text style={styles.titleTxt}>{el.title}</Text>
           <Image style={styles.image} source={el.image} />
         </View>
       ))}

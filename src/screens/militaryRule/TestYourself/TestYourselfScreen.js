@@ -26,7 +26,7 @@ const TestYourself = (props) => {
         style={styles.background}
       /> */}
       <ImageBackground
-        source={require("../../../../assets/images/background.png")}
+        source={require("../../../../assets/images/icons/thd02.jpg")}
         resizeMode="cover"
         style={styles.bgImage}
       >
@@ -93,7 +93,8 @@ export default TestYourself;
 const styles = StyleSheet.create({
   bgImage: {
     flex: 1,
-    justifyContent: "center",
+    // justifyContent: "center",
+    justifyContent: "flex-end",
     alignItems: "center",
     // justifyContent: "center",
   },

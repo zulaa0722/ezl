@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 
 const BureeBumbur = (props) => {
   const clickOnRow = (id, type, name) => {
@@ -16,6 +16,7 @@ const BureeBumbur = (props) => {
       name: name,
     });
   };
+
   return (
     <ScrollView style={styles.bodySide}>
       <TouchableOpacity

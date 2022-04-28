@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect } from "react";
-import { StyleSheet } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { StyleSheet, Image, View } from "react-native";
+import { NavigationContainer, Header } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import RegulationHome from "./src/screens/regulation/RegulationHome";
@@ -61,6 +61,25 @@ export default function App() {
         console.log(err);
       });
   }, []);
+  function LogoTitle() {
+    return (
+      <Image
+        style={{ width: 50, height: 50 }}
+        source={require("./assets/images/icons/Mongolian_Armed_forces_emblem.png")}
+      />
+    );
+  }
+  const ImageHeaderMyshuu = (props) => (
+    <View style={{ backgroundColor: "#eee" }}>
+      <Image
+        style={StyleSheet.absoluteFill}
+        source={{
+          uri: "https://upload.wikimedia.org/wikipedia/commons/3/36/Hopetoun_falls.jpg",
+        }}
+      />
+      <Header {...props} style={{ backgroundColor: "transparent" }} />
+    </View>
+  );
 
   const loadMilitaryRuleData = async () => {
     await axios
@@ -81,28 +100,111 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{}} initialRouteName="loginPage">
-        <Stack.Screen name="loginPage" component={LoginStart} />
-        <Stack.Screen name="TestSound" component={TestSound} />
-        <Stack.Screen name="home" component={HomeScreen} />
-        <Stack.Screen name="ShowTitlesScreen" component={ShowTitlesScreen} />
-        <Stack.Screen name="ShowPdfScreen" component={ShowPdfScreen} />
-        <Stack.Screen name="regulationHome" component={RegulationHome} />
-        <Stack.Screen name="regulationReading" component={RegulationReading} />
-        <Stack.Screen name="MilitaryHome" component={MilitaryHome} />
-        <Stack.Screen name="TestYourself" component={TestYourself} />
-        <Stack.Screen name="TitleShowScreen" component={TitleShowScreen} />
-        <Stack.Screen name="ExamScreen" component={ExamScreen} />
-        <Stack.Screen name="ShowQuestions" component={ShowQuestions} />
-        <Stack.Screen name="BureeBumbur" component={BureeBumbur} />
-        <Stack.Screen name="BureeBumberPlay" component={BureeBumberPlay} />
-        <Stack.Screen name="ShowResult" component={ShowResult} />
+      <Stack.Navigator
+        screenOptions={{
+          // headerShown: false,
+          headerBackButtonMenuEnabled: true,
+          headerBackTitle: "Буцах",
+
+          // headerTitle: (props) => <LogoTitle {...props} />,
+          headerStyle: {
+            backgroundColor: "#192f6a",
+            color: "#fff",
+          },
+          // headerTitleStyle: { color: "#fff" },
+          // header: (props) => <ImageHeaderMyshuu {...props} />,
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+        initialRouteName="loginPage"
+      >
         <Stack.Screen
+          options={{ headerShown: false, title: "" }}
+          name="loginPage"
+          component={LoginStart}
+        />
+        <Stack.Screen name="TestSound" component={TestSound} />
+        <Stack.Screen
+          options={{ title: "МУ-ын Зэвсэгт хүчин" }}
+          name="home"
+          component={HomeScreen}
+        />
+        <Stack.Screen
+          options={{ title: "Цэргийн дүрэм" }}
+          name="ShowTitlesScreen"
+          component={ShowTitlesScreen}
+        />
+        <Stack.Screen
+          options={{ title: "Цэргийн дүрэм" }}
+          name="ShowPdfScreen"
+          component={ShowPdfScreen}
+        />
+        <Stack.Screen
+          options={{ title: "Дүрэм журам" }}
+          name="regulationHome"
+          component={RegulationHome}
+        />
+        <Stack.Screen
+          options={{ title: "Дүрэм журам" }}
+          name="regulationReading"
+          component={RegulationReading}
+        />
+        <Stack.Screen
+          options={{ title: "Цэргийн дүрэм" }}
+          name="MilitaryHome"
+          component={MilitaryHome}
+        />
+        <Stack.Screen
+          options={{ title: "Дадлагын тест" }}
+          name="TestYourself"
+          component={TestYourself}
+        />
+        <Stack.Screen
+          options={{ title: "Дадлагын тест" }}
+          name="TitleShowScreen"
+          component={TitleShowScreen}
+        />
+        <Stack.Screen
+          options={{
+            title: "Шалгалт",
+            headerBackButtonMenuEnabled: false,
+            headerBackVisible: false,
+          }}
+          name="ExamScreen"
+          component={ExamScreen}
+        />
+        <Stack.Screen
+          options={{
+            title: "Шалгалт",
+            headerBackButtonMenuEnabled: false,
+            headerBackVisible: false,
+          }}
+          name="ShowResult"
+          component={ShowResult}
+        />
+
+        <Stack.Screen name="ShowQuestions" component={ShowQuestions} />
+        <Stack.Screen
+          options={{ title: "Бүрээ бөмбөр" }}
+          name="BureeBumbur"
+          component={BureeBumbur}
+        />
+        <Stack.Screen
+          options={{ title: "Бүрээ бөмбөр" }}
+          name="BureeBumberPlay"
+          component={BureeBumberPlay}
+        />
+
+        <Stack.Screen
+          options={{ title: "Жагсаалын ажиллагаа" }}
           name="JagsaaliinAjillaga"
           component={JagsaaliinAjillaga}
         />
 
         <Stack.Screen
+          options={{ title: "Дадлагын тест" }}
           name="ShowQuestionSwiper"
           component={ShowQuestionSwiper}
         />
