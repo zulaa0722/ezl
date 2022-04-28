@@ -61,25 +61,6 @@ export default function App() {
         console.log(err);
       });
   }, []);
-  function LogoTitle() {
-    return (
-      <Image
-        style={{ width: 50, height: 50 }}
-        source={require("./assets/images/icons/Mongolian_Armed_forces_emblem.png")}
-      />
-    );
-  }
-  const ImageHeaderMyshuu = (props) => (
-    <View style={{ backgroundColor: "#eee" }}>
-      <Image
-        style={StyleSheet.absoluteFill}
-        source={{
-          uri: "https://upload.wikimedia.org/wikipedia/commons/3/36/Hopetoun_falls.jpg",
-        }}
-      />
-      <Header {...props} style={{ backgroundColor: "transparent" }} />
-    </View>
-  );
 
   const loadMilitaryRuleData = async () => {
     await axios
@@ -118,7 +99,7 @@ export default function App() {
             fontWeight: "bold",
           },
         }}
-        initialRouteName="home"
+        initialRouteName="loginPage"
       >
         <Stack.Screen
           options={{ headerShown: false, title: "" }}

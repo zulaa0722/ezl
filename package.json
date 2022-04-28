@@ -26,6 +26,7 @@
     "react-native": "0.64.3",
     "react-native-app-intro-slider": "^4.0.4",
     "react-native-audio-recorder-player": "^3.4.0",
+    "react-native-blob-util": "^0.15.0",
     "react-native-button-component": "^0.2.28",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-gradients": "^1.2.0",
