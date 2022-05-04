@@ -9,7 +9,7 @@ const ChildItem = (props) => {
         props.clickChild(props.item.id);
       }}
     >
-      <Text style={styles.text}>{props.item.name}</Text>
+      <Text style={styles.text}>{props.item.name} </Text>
     </TouchableOpacity>
   );
 };

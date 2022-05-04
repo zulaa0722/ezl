@@ -6,7 +6,10 @@ import ParentLists from "../../../components/militaryRule/militaryRule/ParentLis
 const ShowTitlesScreen = (props) => {
   const clickChild = (id) => {
     console.log("show pdf " + id);
-    props.navigation.navigate("ShowPdfScreen");
+
+    props.navigation.navigate("ShowPdfScreen", {
+      id: id,
+    });
   };
 
   return (

@@ -28,7 +28,7 @@ import ShowQuestionSwiper from "./src/screens/militaryRule/TestYourself/ShowQues
 import ShowResult from "./src/screens/militaryRule/Exam/ShowResult";
 import TestSound from "./src/screens/militaryRule/BureeBumbur/TestSound";
 
-// Жагсаалын ажиллагаа
+// Жагсаалын ажиллагааF
 import JagsaaliinAjillaga from "./src/screens/militaryRule/JagsaalAjillagaa/JagsaaliinAjillaga";
 
 // login
@@ -70,6 +70,7 @@ export default function App() {
       .then((res) => {
         const initDB = dbMilRule.initDB();
         const initDB1 = dbMilRule.initDB1();
+        const militaryRuleData = dbMilRule.initDBMilitaryRuleData();
         const insertTitles = dbMilRule.insertTitles(res.data.title);
         const insertQuestions = dbMilRule.insertQuestions(res.data.questions);
         // console.log(res.data.questions);

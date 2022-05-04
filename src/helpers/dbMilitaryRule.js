@@ -55,6 +55,33 @@ export const initDB1 = () => {
   });
 };
 
+export const initDBMilitaryRuleData = () => {
+  const promise = new Promise((resolve, reject) => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        "DROP TABLE IF EXISTS tbMilitaryRuleData;",
+        [],
+        (_, result) => {
+          resolve(result);
+        },
+        (_, err) => {
+          reject(err);
+        }
+      );
+      tx.executeSql(
+        "CREATE TABLE IF NOT EXISTS tbMilitaryRuleData (id number, duremID number, bulegID number, mainInfo text);",
+        [],
+        (_, result) => {
+          resolve(result);
+        },
+        (_, err) => {
+          reject(err);
+        }
+      );
+    });
+  });
+};
+
 export const insertTitles = (titles) => {
   const promise = new Promise((resolve, reject) => {
     db.transaction((tx) => {

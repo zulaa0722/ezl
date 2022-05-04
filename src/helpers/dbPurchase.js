@@ -19,12 +19,12 @@ export const initPurchaseDB = () => {
   });
 };
 
-export const insertPurchase = () => {
+export const insertPurchase = (phoneNumber) => {
   const promise = new Promise((resolve, reject) => {
     db.transaction((tx) => {
       tx.executeSql(
         "INSERT INTO purchased (id) VALUES(?)",
-        [1],
+        [phoneNumber],
         (_, result) => {
           resolve(result);
         },
@@ -44,6 +44,26 @@ export const selectPurchase = () => {
       tx.executeSql(
         "SELECT * FROM purchased",
         [],
+        (_, result) => {
+          // console.log(result.rows);
+          resolve(result.rows);
+        },
+        (_, err) => {
+          reject(err);
+        }
+      );
+    });
+  });
+  // return result;
+  return prom;
+};
+
+export const selectPurchaseIsMe = (phone) => {
+  const prom = new Promise((resolve, reject) => {
+    const result = db.transaction((tx) => {
+      tx.executeSql(
+        "SELECT * FROM purchased WHERE id = ?",
+        [phone],
         (_, result) => {
           // console.log(result.rows);
           resolve(result.rows);

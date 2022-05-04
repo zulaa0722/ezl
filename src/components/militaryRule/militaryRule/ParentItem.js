@@ -10,7 +10,6 @@ const ParentItem = (props) => {
   const clickParentItem = () => {
     setShowChild(!showChild);
   };
-
   return (
     <>
       <TouchableOpacity style={styles.parentItem} onPress={clickParentItem}>

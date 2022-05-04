@@ -11,7 +11,11 @@ import {
 import React, { useState, useEffect } from "react";
 import { WebView } from "react-native-webview";
 import axios from "../../axios/axios-purchase";
-import { insertPurchase, selectPurchase } from "../../helpers/dbPurchase";
+import {
+  insertPurchase,
+  selectPurchase,
+  selectPurchaseIsMe,
+} from "../../helpers/dbPurchase";
 
 const LoginStart = (props) => {
   const [number, setNumber] = useState("");
@@ -33,8 +37,21 @@ const LoginStart = (props) => {
   const checkIsLoggedIn = () => {
     selectPurchase()
       .then((res) => {
+        // console.log(res._array);
         if (res._array.length > 0) {
           props.navigation.navigate("home");
+        }
+      })
+      .catch();
+  };
+  const checkIsMe = (data) => {
+    selectPurchaseIsMe(number)
+      .then((res) => {
+        if (res._array.length > 0) {
+          props.navigation.navigate("home");
+        } else {
+          setErr(data.msg);
+          setMoney(null);
         }
       })
       .catch();
@@ -64,14 +81,14 @@ const LoginStart = (props) => {
           return;
         }
         if (res.data.status === "errorLogin") {
-          setErr(res.data.msg);
-          setMoney(null);
+          checkIsMe(res.data);
+
           return;
         }
         if (res.data.status === "success") {
           setErr(null);
           setMoney(null);
-          insertPurchase()
+          insertPurchase(res.data.phoneNumber)
             .then((res) => {
               props.navigation.navigate("home");
             })
