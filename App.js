@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import RegulationHome from "./src/screens/regulation/RegulationHome";
 import HomeScreen from "./src/screens/Home";
-import { fetchData } from "./src/helpers/fetchData";
+import { fetchData, articlesChildren } from "./src/helpers/fetchData";
 import LoginScreen from "./src/screens/Login";
 import * as dbRegulation from "./src/helpers/dbRegulation";
 import RegulationReading from "./src/screens/regulation/RegulationReadingScreen";
@@ -44,7 +44,7 @@ export default function App() {
     const shaa = initPurchaseDB();
 
     const titless = dbMilRule.selectTitles(1);
-    console.log(titless);
+    // console.log(titless);
     fetchData("getData.php", "")
       .then((res) => {
         const insertLawTypes = dbRegulation.insertLawTypes(res.lawType);
@@ -58,6 +58,16 @@ export default function App() {
       .then((res) => {
         const insertLaws = dbRegulation.insertLaws(res.laws);
         // console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    articlesChildren("/get/discipline/article", "")
+      .then((res) => {
+        // console.log(res);
+        const insertArticlesChildrens =
+          dbRegulation.insertArticlesChildren(res);
       })
       .catch((err) => {
         console.log(err);
