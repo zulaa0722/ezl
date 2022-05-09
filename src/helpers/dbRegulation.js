@@ -67,6 +67,27 @@ export const initDb = () => {
           reject(err);
         }
       );
+      tx.executeSql(
+        "DROP TABLE IF EXISTS tbArticleChildren;",
+        [],
+        (_, result) => {
+          resolve(result);
+        },
+        (_, err) => {
+          reject(err);
+        }
+      );
+      tx.executeSql(
+        "CREATE TABLE IF NOT EXISTS tbArticleChildren (id number, lawID number, parentID number, articleName text, isDurem number, areYouHaveChildren number);",
+        [],
+        (_, result) => {
+          // console.log(result.rows);
+          resolve(result);
+        },
+        (_, err) => {
+          reject(err);
+        }
+      );
     });
   });
   // console.log("tables created");
@@ -135,6 +156,79 @@ export const insertArticles = (articles) => {
 
   return promise;
 };
+export const insertArticlesChildren = (articlesChildren) => {
+  const promise = new Promise((resolve, reject) => {
+    db.transaction((tx) => {
+      articlesChildren.map((item) => {
+        if (item.parentID == 0) {
+          if (item.children != "") {
+            tx.executeSql(
+              "INSERT INTO tbArticleChildren (id, lawID, parentID, articleName, isDurem, areYouHaveChildren) VALUES(?, ?, ?, ?, ?, ?)",
+              [
+                item.id,
+                item.lawID,
+                item.parentID,
+                item.articleName,
+                item.isDurem,
+                1,
+              ], // areYouHaveChildren = 1 Байвал дэд цэстэй байна.
+              (_, result) => {
+                resolve(result);
+              },
+              (_, err) => {
+                console.log("aldaa garlaa insert children");
+                reject(err);
+              }
+            );
+            item.children.map((subItem) => {
+              // console.log(subItem);
+              // console.log("--------");
+              tx.executeSql(
+                "INSERT INTO tbArticleChildren (id, lawID, parentID, articleName, isDurem, areYouHaveChildren) VALUES(?, ?, ?, ?, ?, ?)",
+                [
+                  subItem.id,
+                  subItem.lawID,
+                  subItem.parentID,
+                  subItem.childName,
+                  item.isDurem,
+                  0,
+                ],
+                (_, result) => {
+                  resolve(result);
+                },
+                (_, err) => {
+                  console.log("aldaa garlaa insert children");
+                  reject(err);
+                }
+              );
+            });
+          } else {
+            tx.executeSql(
+              "INSERT INTO tbArticleChildren (id, lawID, parentID, articleName, isDurem, areYouHaveChildren) VALUES(?, ?, ?, ?, ?, ?)",
+              [
+                item.id,
+                item.lawID,
+                item.parentID,
+                item.articleName,
+                item.isDurem,
+                0,
+              ],
+              (_, result) => {
+                resolve(result);
+              },
+              (_, err) => {
+                console.log("aldaa garlaa insert children");
+                reject(err);
+              }
+            );
+          }
+        }
+      });
+    });
+  });
+
+  return promise;
+};
 export const selectArticles = (id) => {
   const prom = new Promise((resolve, reject) => {
     const result = db.transaction((tx) => {
@@ -146,6 +240,27 @@ export const selectArticles = (id) => {
           // console.log(result.rows);
         },
         (_, err) => {
+          reject(err);
+        }
+      );
+    });
+  });
+  return prom;
+};
+
+export const selectArticlesChildren = (id) => {
+  const prom = new Promise((resolve, reject) => {
+    const result = db.transaction((tx) => {
+      tx.executeSql(
+        "SELECT * FROM tbArticleChildren WHERE lawID = ?",
+        [id],
+        (_, result) => {
+          resolve(result.rows);
+          // console.log("99999999999999999");
+          // console.log(result.rows);
+        },
+        (_, err) => {
+          console.log("aldaa garlaa");
           reject(err);
         }
       );
