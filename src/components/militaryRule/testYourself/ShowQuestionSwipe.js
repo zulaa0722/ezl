@@ -3,8 +3,11 @@ import React, { useState } from "react";
 
 const ShowQuestionSwipe = (props) => {
   const [checkAns, setCheckAns] = useState(false);
+
+  
   return (
     <View key={props.item.id} style={styles.slide}>
+      
       <View style={styles.questionsStyle}>
         <Text style={styles.questionsText}>{props.item.question}</Text>
       </View>
@@ -16,7 +19,7 @@ const ShowQuestionSwipe = (props) => {
       <TouchableOpacity
         style={styles.ansBtn}
         onPress={() => {
-          //   ansBtnFn(props.item.ans2, props.item.true_answer);
+           // ansBtnFn(props.item.ans2, props.item.true_answer);
         }}
       >
         <Text style={styles.ansText}>{props.item.ans2}</Text>
@@ -39,9 +42,7 @@ const ShowQuestionSwipe = (props) => {
       >
         <Text style={styles.ansText}>{props.item.ans4}</Text>
       </TouchableOpacity>
-
-      {/* {checkAns == true && <ShowResult />}
-      <ShowResult /> */}
+        
     </View>
   );
 };

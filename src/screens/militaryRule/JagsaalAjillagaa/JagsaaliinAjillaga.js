@@ -29,7 +29,7 @@ const slides = [
   },
   {
     key: 6,
-    title: "Зэвсэгтэй жагсаалын үндсэн зогсолт           (Ар талаас)",
+    title: "Зэвсэгтэй жагсаалын үндсэн зогсолт          (Ар талаас)",
     image: require("../../../../assets/images/gif/pic5.gif"),
   },
   {
@@ -120,12 +120,14 @@ const JagsaaliinAjillaga = () => {
       style={styles.wrapper}
       showsButtons={true}
       loop={false}
+      nextButton={true}
+      prevButton={true}
       showsPagination={false}
     >
       {slides.map((el, index) => (
         // <ShowQuestion key={el.id} item={el} />
         <View key={el.key} style={styles.container}>
-          <Text style={styles.titleTxt}>{el.title}</Text>
+          <Text style={styles.titleTxt}>{el.key}. {el.title}</Text>
           <Image style={styles.image} source={el.image} />
         </View>
       ))}
@@ -156,7 +158,7 @@ const styles = StyleSheet.create({
   },
   titleTxt: {
     padding: 5,
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",
   },

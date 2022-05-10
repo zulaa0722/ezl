@@ -3,10 +3,10 @@ import React from "react";
 
 const ShowResult = (props) => {
   return (
-    <View>
+    <View >
       {props.userAns === props.trueAns ? (
         <Text
-          style={{ color: "green", textAlign: "center", fontWeight: "bold" }}
+          style={styles.trueAnsReplay}
         >
           Зөв хариуллаа.
         </Text>
@@ -18,6 +18,7 @@ const ShowResult = (props) => {
               textAlign: "center",
               fontWeight: "bold",
               marginBottom: 5,
+              marginTop: 5,
             }}
           >
             Буруу хариуллаа.
@@ -28,10 +29,11 @@ const ShowResult = (props) => {
               borderRadius: 5,
               borderColor: "grey",
               borderWidth: 1,
+              padding: 5,
             }}
           >
-            <Text style={{ color: "black", fontWeight: "bold" }}>
-              Зөв хариулт:
+            <Text style={{ color: "green", fontWeight: "bold" }}>
+              Зөв хариулт бол :
             </Text>
             <Text> {props.ansDiscription}</Text>
           </View>
@@ -43,4 +45,11 @@ const ShowResult = (props) => {
 
 export default ShowResult;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  trueAnsReplay: {
+    color: "green", 
+    textAlign: "center", 
+    fontWeight: "bold",
+    paddingTop: 5,
+  },
+});

@@ -14,10 +14,12 @@ const QuestionsShow = (props) => {
         style={styles.wrapper}
         showsButtons={true}
         loop={false}
+        nextButton={true}
+        prevButton={true}
         showsPagination={false}
       >
         {props.questions.map((el, index) => (
-          <Question key={el.id} item={el} />
+          <Question key={el.id} item={el}  />
         ))}
       </Swiper>
     </View>

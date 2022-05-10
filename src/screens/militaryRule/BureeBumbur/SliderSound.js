@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     padding: 5,
     width: 80,
     alignItems: "center",
+    marginLeft: 5,
   },
   playTxt: {
     color: "black",

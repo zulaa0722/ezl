@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Question = (props) => {
   const ansBtnFn = (ans, true_answer, discription) => {};
@@ -8,12 +8,22 @@ const Question = (props) => {
   const [changeColor3, setChangeColor3] = useState(false);
   const [changeColor4, setChangeColor4] = useState(false);
   const changeBackground = () => {};
-  console.log("----------");
-  console.log(props.item);
+  const [checkBtnData2, setCheckBtnData2] = useState("");
+  const [checkBtnData3, setCheckBtnData3] = useState("");
+
+  useEffect(()=>{
+    setCheckBtnData2(props.item.ans3);
+  }, []);
+
+  useEffect(()=>{
+    setCheckBtnData3(props.item.ans4);
+  }, []);
+
+
   return (
     <View key={props.item.id} style={styles.slide}>
       <View style={styles.questionsStyle}>
-        <Text style={styles.questionsText}>{props.item.question}</Text>
+        <Text style={styles.questionsText}>Асуулт {props.pageNumber}/25 - "{props.item.question}"</Text>
       </View>
 
       <TouchableOpacity
@@ -54,7 +64,8 @@ const Question = (props) => {
         </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
+      {checkBtnData2 == "" ? <></> : (
+        <TouchableOpacity
         style={changeColor3 ? styles.ansBtnSelected : styles.ansBtn}
         onPress={() => {
           setChangeColor1(false);
@@ -72,8 +83,10 @@ const Question = (props) => {
           {props.item.ans3}
         </Text>
       </TouchableOpacity>
-
-      <TouchableOpacity
+      )}
+      
+      {checkBtnData3 == "" ? <></> : (
+        <TouchableOpacity
         style={changeColor4 ? styles.ansBtnSelected : styles.ansBtn}
         onPress={() => {
           setChangeColor1(false);
@@ -91,6 +104,7 @@ const Question = (props) => {
           {props.item.ans4}
         </Text>
       </TouchableOpacity>
+      )}
     </View>
   );
 };
@@ -101,11 +115,11 @@ const styles = StyleSheet.create({
   slide: {
     flex: 1,
     padding: 5,
-    backgroundColor: "#fff",
+    backgroundColor: "#DDF3E8",
     overflow: "hidden",
   },
   quesText: {
-    color: "black",
+    color: "#fff",
     fontSize: 14,
     fontWeight: "bold",
     borderRadius: 5,
@@ -125,27 +139,27 @@ const styles = StyleSheet.create({
     padding: 5,
     marginLeft: 20,
     marginRight: 20,
-    backgroundColor: "#fff012",
-    borderColor: "green",
-    borderWidth: 1,
+    backgroundColor: "#00aeef",
   },
   ansText: {
     color: "#fff",
     fontSize: 13,
   },
   ansTextSelected: {
-    color: "#000000",
+    color: "#fff",
     fontSize: 13,
   },
   questionsStyle: {
-    borderRadius: 10,
+    borderRadius: 5,
     borderColor: "green",
     borderWidth: 2,
     padding: 5,
-    marginBottom: 5,
+    marginBottom: 10,
+    marginTop: 10,
   },
   questionsText: {
     color: "black",
     fontSize: 13,
+    fontWeight: "bold",
   },
 });
