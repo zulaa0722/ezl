@@ -18,13 +18,13 @@ const ShowResult = (props) => {
         </TouchableOpacity>
         <Text style={styles.line}> </Text>
 
-        <Text style={styles.text}> ДҮН</Text>
+        <Text style={styles.text}>ДҮН</Text>
 
         {/* </LinearGradient> */}
       </View>
-      <Text style={styles.scoreTxt}>ТАНЫ ШАЛГАЛТЫН ДҮН /хувиар/:</Text>
+      <Text style={styles.scoreTxt}>ТАНЫ ШАЛГАЛТЫН ДҮН :</Text>
       <Text style={styles.scoreTxt}>
-        {(props.route.params.point * 100) / 25} %
+        {(props.route.params.point * 100) / 25}%  /  100%
       </Text>
       <View style={styles.onRowView1}>
         <Text style={styles.scoreTrueTxtLable}>Зөв хариулсан:</Text>
@@ -63,14 +63,14 @@ const styles = StyleSheet.create({
     flex: 1,
     color: "#fff",
     padding: 2,
+    marginLeft: -30,
   },
   rowText: {
     color: "black",
   },
   line: {
-    width: 1,
+    width: 2,
     backgroundColor: "#fff",
-    // backgroundColor: "#f0c418",
     marginRight: 3,
     height: "100%",
   },
@@ -83,14 +83,14 @@ const styles = StyleSheet.create({
   },
   scoreTrueTxtLable: {
     color: "black",
-    fontSize: 14,
+    fontSize: 15,
     textAlign: "left",
     paddingRight: 5,
   },
   scoreTrueTxtScore: {
     flex: 1,
     color: "black",
-    fontSize: 14,
+    fontSize: 15,
     textAlign: "right",
     paddingRight: 5,
   },

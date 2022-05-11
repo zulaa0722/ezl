@@ -11,7 +11,6 @@ const TitleShowScreen = (props) => {
   const [titles, setTitles] = useState([]);
 
   useEffect(() => {
-    // setTitles(dbMilRule.selectTitles(props.route.params.chapterID));
     selectTitles(props.route.params.chapterID)
       .then((res) => {
         setTitles(res._array);
@@ -21,16 +20,12 @@ const TitleShowScreen = (props) => {
       });
   }, []);
 
-  const clickOnRow = (id) => {
-    // props.navigation.navigate("ShowQuestions", {
-    //   chapterName: props.route.params.chapterName,
-    //   chapterID: props.route.params.chapterID,
-    //   bulegId: id,
-    // });
+  const clickOnRow = (id, counts) => {
     props.navigation.navigate("ShowQuestionSwiper", {
       chapterName: props.route.params.chapterName,
       chapterID: props.route.params.chapterID,
       bulegId: id,
+      niitID: counts,
     });
   };
 
@@ -41,19 +36,19 @@ const TitleShowScreen = (props) => {
       </View>
 
       <ScrollView style={styles.bodySide}>
-        {/* <Text>TitleShowScreen {props.route.params.chapterID}</Text> */}
         {titles.map((el, index) => (
-          <TouchableOpacity
-            key={index}
-            style={styles.listBtn}
-            onPress={() => {
-              clickOnRow(el.id);
-            }}
-          >
-            <Text style={styles.rowText}>{el.name}</Text>
-            <Text style={styles.rowTxtCount}>= {el.count} асуулттай</Text>
-          </TouchableOpacity>
-        ))}
+            <TouchableOpacity
+              key={index}
+              style={styles.listBtn}
+              onPress={() => {
+                clickOnRow(el.id, el.count);
+              }}
+            >
+              <Text style={styles.rowText}>{el.name}</Text>
+              <Text style={styles.rowTxtCount}>= {el.count} асуулттай</Text>
+            </TouchableOpacity>
+          ))
+        }
       </ScrollView>
     </View>
   );
@@ -100,7 +95,6 @@ const styles = StyleSheet.create({
   line: {
     width: 1,
     backgroundColor: "#fff",
-    // backgroundColor: "#f0c418",
     marginRight: 3,
     height: "100%",
   },
@@ -111,12 +105,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   listBtn: {
-    // flexDirection: "row",
-    // flex: 1,
     padding: 10,
-    //marginBottom: 5,
-    // borderRadius: 5,
-    // backgroundColor: "green",
     borderBottomColor: "grey",
     borderBottomWidth: 2,
   },

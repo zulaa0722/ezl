@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, pageNumber } from "react-native";
 import React, { useEffect, useState } from "react";
 
 import Swiper from "react-native-swiper";
@@ -28,10 +28,13 @@ const ShowQuestionSwiper = (props) => {
         style={styles.wrapper}
         showsButtons={true}
         loop={false}
+        nextButton={true}
+        prevButton={true}
         showsPagination={false}
+        
       >
         {questions.map((el, index) => (
-          <ShowQuestion key={el.id} item={el} />
+          <ShowQuestion key={el.id} item={el} pageNumber={index+1} niitID={props.route.params.niitID}/>
         ))}
       </Swiper>
     </>
@@ -110,4 +113,8 @@ const styles = StyleSheet.create({
     color: "black",
     fontSize: 13,
   },
+  pageNumber: {
+    textAlign: "center",
+    backgroundColor: "#00aeef",
+  }
 });

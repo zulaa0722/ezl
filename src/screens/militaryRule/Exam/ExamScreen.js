@@ -60,10 +60,12 @@ const ExamScreen = (props) => {
         style={styles.wrapper}
         showsButtons={true}
         loop={false}
+        nextButton={true}
+        prevButton={true}
         showsPagination={false}
       >
         {questions.map((el, index) => (
-          <Question clickAnswer={clickAnswer} key={el.id} item={el} />
+          <Question clickAnswer={clickAnswer} key={el.id} item={el} pageNumber={index + 1} />
         ))}
       </Swiper>
     </>

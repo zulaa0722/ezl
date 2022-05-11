@@ -8,15 +8,11 @@ const ExamHeader = (props) => {
         style={styles.backButton}
         onPress={() => {
           props.btnBackClick();
-        }}
-      >
+        }}>
         <Text>Дуусгах</Text>
       </TouchableOpacity>
       <Text style={styles.line}> </Text>
-
       <Text style={styles.text}>Шалгалтын хэсэг</Text>
-
-      {/* </LinearGradient> */}
     </View>
   );
 };
@@ -27,7 +23,7 @@ const styles = StyleSheet.create({
   backButton: {
     backgroundColor: "#00aeef",
     padding: 15,
-    height: 45,
+    height: 50,
   },
   headerRow: {
     justifyContent: "center",
@@ -38,7 +34,7 @@ const styles = StyleSheet.create({
     backgroundColor: "green",
   },
   line: {
-    width: 1,
+    width: 2,
     backgroundColor: "#fff",
     marginRight: 3,
     height: "100%",
