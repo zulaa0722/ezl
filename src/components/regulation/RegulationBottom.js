@@ -14,25 +14,13 @@ import ArticleChildren from "./ArticleChildren";
 
 const RegulationBottom = (props) => {
   const [articles, setArticles] = useState([]);
-  const [id, setID] = useState("");
   const [areYouHaveChild, setAreYouHaveChild] = useState(false);
+  const [isClick, setIsClick] = useState(1);
   const [getClickParentID, setGetClickParentID] = useState("");
 
-  // console.log(props);
   useEffect(() => {
-    // selectArticles(props.ids)
-    //   .then((res) => {
-    //     setArticles(res._array);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
     selectArticlesChildren(props.ids)
       .then((res) => {
-        // console.log("---------");
-        // console.log(res);
-        // console.log("---------");
         setArticles(res._array);
       })
       .catch((err) => {
@@ -42,18 +30,17 @@ const RegulationBottom = (props) => {
 
   const subItems = (clickParentID) => {
     setGetClickParentID(clickParentID);
-    // if (getClickParentID == childID) {
-
-    // }
-    if (areYouHaveChild == false) {
-      setAreYouHaveChild(true);
-    } else {
-      setAreYouHaveChild(false);
+    {
+      isClick == 0 ? setIsClick(1) : setIsClick(0);
     }
   };
 
   const hiddenSubChildren = (childID) => {
-    console.log(childID);
+    {
+      getClickParentID == childID
+        ? setAreYouHaveChild(true)
+        : setAreYouHaveChild(false);
+    }
   };
 
   const navigateReading = (id) => {
@@ -96,8 +83,6 @@ const RegulationBottom = (props) => {
             );
           }
         } else {
-          // <ArticleChildren navigateTo={navigateReading} data={data} />;
-          // console.log(data.item.isDurem);
           return (
             <ArticleChildren
               navigateTo={navigateReading}
@@ -107,29 +92,8 @@ const RegulationBottom = (props) => {
               areYouHaveChild={areYouHaveChild}
             />
           );
-
-          // if (!areYouHaveChild) {
-          //   console.log(areYouHaveChild);
-          //   return <ArticleChildren navigateTo={navigateReading} data={data} />;
-          // }
         }
       }}
-      // renderItem={(data) => (
-      //   <>
-
-      //     <TouchableOpacity
-      //       onPress={() => {
-      //         navigateReading(data.item.id);
-      //       }}
-      //       style={myStyle.btnStyle}
-      //     >
-      //       <View style={myStyle.wrapper}>
-      //         <Text style={myStyle.text}>{data.item.articleName}</Text>
-      //       </View>
-      //     </TouchableOpacity>
-      //     <ArticleChildren data={data} />
-      //   </>
-      // )}
     />
   );
 };
@@ -139,14 +103,11 @@ export default RegulationBottom;
 const myStyle = StyleSheet.create({
   container: {},
   btnStyle: {
-    // paddingTop: 5,
     marginTop: 5,
   },
   wrapper: {
-    //flex: 1,
     flexDirection: "row",
     marginTop: 5,
-    // paddingTop: 5,
     marginHorizontal: 10,
     backgroundColor: "#fff",
     borderRadius: 10,
@@ -154,8 +115,6 @@ const myStyle = StyleSheet.create({
   text: {
     fontSize: 18,
     margin: 10,
-    // width: "90%",
     borderRadius: 5,
-    // backgroundColor: "#fff",
   },
 });
