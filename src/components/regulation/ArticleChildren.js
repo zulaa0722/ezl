@@ -1,15 +1,13 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React, { useState, useEffect } from "react";
 import { selectArticlesChildren } from "../../helpers/dbRegulation";
+import ArticleChild from "./ArticleChild";
 
 const ArticleChildren = (props) => {
   const [articleChildren, setArticleChildren] = useState([]);
   const [childHide, setchildHide] = useState(false);
 
   const getArticleChildren = (id) => {};
-  if (props.getClickParentID == props.data.item.parentID) {
-    props.hiddenSubChildren(props.data.item.parentID);
-  }
 
   useEffect(() => {
     // if (props.getClickParentID == props.data.item.parentID) {
@@ -22,9 +20,9 @@ const ArticleChildren = (props) => {
     // }
   }, []);
 
-  const navigateReading = (id) => {
-    props.navigateTo(id);
-  };
+  // const navigateReading = (id) => {
+  //   props.navigateTo(id);
+  // };
   if (props.data.item.parentID == 0) {
     useEffect(() => {
       selectArticlesChildren(props.data.item.id)
@@ -39,23 +37,19 @@ const ArticleChildren = (props) => {
   }
 
   //   console.log(props.isClick);
+  if (props.getClickParentID == props.data.item.parentID) {
+    props.hiddenSubChildren(props.data.item.parentID);
+  }
+
   return (
     <>
-      {props.areYouHaveChild &&
-        props.getClickParentID == props.data.item.parentID && (
-          <TouchableOpacity
-            onPress={() => {
-              navigateReading(props.data.item.id);
-            }}
-            style={styles.btnStyleElse}
-          >
-            <View style={styles.wrapperElse}>
-              <Text style={styles.text}>
-                {props.data.item.articleName} {props.data.item.parentID}
-              </Text>
-            </View>
-          </TouchableOpacity>
-        )}
+      {props.getClickParentID == props.data.item.parentID && (
+        <ArticleChild
+          navigateTo={props.navigateTo}
+          data={props.data}
+          areYouHaveChild={props.areYouHaveChild}
+        />
+      )}
     </>
   );
 };
