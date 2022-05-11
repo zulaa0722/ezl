@@ -18,11 +18,7 @@ import { Feather } from "@expo/vector-icons";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { RegulationHome } from "./regulation/RegulationHome";
-// import ButtonComponent, {
-//   CircleButton,
-//   RoundButton,
-//   RectangleButton,
-// } from "react-native-button-component";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -37,20 +33,7 @@ const Home = (props) => {
         <ImageBackground
           style={{ flex: 1, justifyContent: "flex-end" }}
           source={require("../../assets/images/thd01.jpg")}
-          // source={{
-          //   uri: "../../assets/images/thd01.jpg",
-          // }}
-        >
-          {/* <View
-            style={{
-              flex: 1,
-              flexDirection: "column-reverse",
-              //   backgroundColor: "powderblue",
-            }}
-          > */}
-
-          {/* </Stack.Navigator> */}
-
+          >
           <TouchableOpacity style={home_styles.newButton}>
             <LinearGradient
               colors={["#4c669f", "#3b5998", "#192f6a"]}
@@ -58,12 +41,31 @@ const Home = (props) => {
             >
               <Image
                 style={home_styles.image}
-                source={require("../../assets/images/law05.png")}
+                source={require("../../assets/images/law04.png")}
               />
               <Text style={home_styles.line}> </Text>
               <Text style={home_styles.text}>
                 Батлан хамгаалах, Зэвсэгт хүчний тухай хуулиуд
               </Text>
+            </LinearGradient>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={home_styles.newButton}
+            onPress={() => {
+              props.navigation.navigate("MilitaryHome");
+            }}
+          >
+            <LinearGradient
+              colors={["#4c669f", "#3b5998", "#192f6a"]}
+              style={home_styles.btnGradient}
+            >
+              <Image
+                style={home_styles.image}
+                source={require("../../assets/images/law07.png")}
+              />
+              <Text style={home_styles.line}> </Text>
+              <Text style={home_styles.text}>Монгол Улсын цэргийн нийтлэг дүрмүүд</Text>
             </LinearGradient>
           </TouchableOpacity>
 
@@ -82,51 +84,13 @@ const Home = (props) => {
                 source={require("../../assets/images/law02.png")}
               />
               <Text style={home_styles.line}> </Text>
-              <Text style={home_styles.text}>Дүрэм, журам, бусад</Text>
+              <Text style={home_styles.text}>ЦАХ-ийн холбогдох дүрэм, журам</Text>
             </LinearGradient>
           </TouchableOpacity>
-
-          <TouchableOpacity
-            style={home_styles.newButton}
-            onPress={() => {
-              props.navigation.navigate("MilitaryHome");
-            }}
-          >
-            <LinearGradient
-              colors={["#4c669f", "#3b5998", "#192f6a"]}
-              style={home_styles.btnGradient}
-            >
-              <Image
-                style={home_styles.image}
-                source={require("../../assets/images/law03.png")}
-              />
-              <Text style={home_styles.line}> </Text>
-              <Text style={home_styles.text}>Цэргийн дүрэм</Text>
-            </LinearGradient>
-          </TouchableOpacity>
-          {/* <TouchableOpacity
-            style={home_styles.newButton}
-            onPress={() => {
-              props.navigation.navigate("MilitaryHome");
-            }}
-          >
-            <LinearGradient
-              colors={["#4c669f", "#3b5998", "#192f6a"]}
-              style={home_styles.btnGradient}
-            >
-              <Image
-                style={home_styles.image}
-                source={require("../../assets/images/law03.png")}
-              />
-              <Text style={home_styles.line}> </Text>
-              <Text style={home_styles.text}>Login</Text>
-            </LinearGradient>
-          </TouchableOpacity> */}
 
           <Text style={home_styles.copyRight}>
             Зэвсэгт хүчний © Программ Хангамжийн төв
           </Text>
-          {/* </View> */}
         </ImageBackground>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -137,8 +101,6 @@ export default Home;
 const home_styles = StyleSheet.create({
   container: {
     flex: 1,
-    // flexDirection: "column",
-    // width: "100%",
     justifyContent: "flex-end",
   },
   btnGradient: {
@@ -151,19 +113,12 @@ const home_styles = StyleSheet.create({
     alignItems: "center",
   },
   newButton: {
-    // position: "absolute",
-    // bottom: 0,
-
-    // alignItems: "center",
-    // flexDirection: "row",
     height: 60,
-    // backgroundColor: "#00aeef",
     marginBottom: "5%",
     marginRight: 20,
     marginLeft: 20,
     borderRadius: 15,
     borderColor: "#fff",
-    // borderWidth: 1,
   },
   text: {
     textAlign: "center",
@@ -176,7 +131,6 @@ const home_styles = StyleSheet.create({
   line: {
     width: 1,
     backgroundColor: "#fff",
-    // backgroundColor: "#f0c418",
     marginRight: 3,
     height: "100%",
   },
@@ -190,7 +144,7 @@ const home_styles = StyleSheet.create({
   },
   copyRight: {
     fontSize: 12,
-    textAlign: "right",
+    textAlign: "center",
     paddingRight: 5,
     backgroundColor: "gray",
     opacity: 0.5,

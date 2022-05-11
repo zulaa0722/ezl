@@ -159,7 +159,6 @@ export const insertArticles = (articles) => {
 export const insertArticlesChildren = (articlesChildren) => {
   const promise = new Promise((resolve, reject) => {
     db.transaction((tx) => {
-      
       articlesChildren.map((item) => {
         if (item.parentID == 0) {
           if (item.children != "") {

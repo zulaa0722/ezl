@@ -42,10 +42,42 @@ const Home = (props) => {
           >
             <Image
               style={styles.image}
-              source={require("../../../assets/images/tsd01.png")}
+              source={require("../../../assets/images/tsd06.png")}
             />
             <Text style={styles.line}> </Text>
             <Text style={styles.text}>Цэргийн дүрэм</Text>
+          </LinearGradient>
+        </TouchableOpacity>
+
+        
+        <TouchableOpacity
+          style={styles.newButton}
+          onPress={clickJagsaaliinAjillaga}
+        >
+          <LinearGradient
+            colors={["#4c669f", "#3b5998", "#192f6a"]}
+            style={styles.btnGradient}
+          >
+            <Image
+              style={styles.image}
+              source={require("../../../assets/images/tsd07.png")}
+            />
+            <Text style={styles.line}> </Text>
+            <Text style={styles.text}>Жагсаалын ажиллагаа</Text>
+          </LinearGradient>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.newButton} onPress={clickBureeBumbur}>
+          <LinearGradient
+            colors={["#4c669f", "#3b5998", "#192f6a"]}
+            style={styles.btnGradient}
+          >
+            <Image
+              style={styles.image}
+              source={require("../../../assets/images/tsd05.png")}
+            />
+            <Text style={styles.line}> </Text>
+            <Text style={styles.text}>Бүрээ бөмбөр</Text>
           </LinearGradient>
         </TouchableOpacity>
 
@@ -77,36 +109,6 @@ const Home = (props) => {
           </LinearGradient>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.newButton}
-          onPress={clickJagsaaliinAjillaga}
-        >
-          <LinearGradient
-            colors={["#4c669f", "#3b5998", "#192f6a"]}
-            style={styles.btnGradient}
-          >
-            <Image
-              style={styles.image}
-              source={require("../../../assets/images/tsd04.png")}
-            />
-            <Text style={styles.line}> </Text>
-            <Text style={styles.text}>Жагсаалын ажиллагаа</Text>
-          </LinearGradient>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.newButton} onPress={clickBureeBumbur}>
-          <LinearGradient
-            colors={["#4c669f", "#3b5998", "#192f6a"]}
-            style={styles.btnGradient}
-          >
-            <Image
-              style={styles.image}
-              source={require("../../../assets/images/tsd05.png")}
-            />
-            <Text style={styles.line}> </Text>
-            <Text style={styles.text}>Бүрээ бөмбөр</Text>
-          </LinearGradient>
-        </TouchableOpacity>
       </ImageBackground>
     </View>
   );

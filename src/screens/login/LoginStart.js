@@ -148,7 +148,7 @@ const LoginStart = (props) => {
             </View>
           )}
           <View style={styles.lableDescription}>
-            <Text style={{ color: "#000000" }}>Ашиглах заавар:</Text>
+            <Text style={{ color: "#000000" }}>Ашиглах заавар : </Text>
           </View>
           <View style={styles.inputRow}>
             <ScrollView style={styles.txtScrollView}>
@@ -219,12 +219,12 @@ const styles = StyleSheet.create({
     // margin: 12,
     marginLeft: 12,
     // borderWidth: 2,
-    borderBottomWidth: 2,
+    // borderBottomWidth: 2,
     padding: 10,
     // borderRadius: 5,
     borderTopLeftRadius: 5,
     borderBottomLeftRadius: 5,
-    borderColor: "#fff",
+    // borderColor: "#fff",
     color: "#30396f",
     backgroundColor: "#fff012",
   },
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
     width: "30%",
     height: 40,
     backgroundColor: "green",
-    borderBottomWidth: 2,
+    // borderBottomWidth: 2,
     padding: 10,
     borderTopRightRadius: 5,
     borderBottomRightRadius: 5,
