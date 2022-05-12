@@ -57,9 +57,6 @@ const RegulationHome = (props) => {
         <ImageBackground
           style={{ flex: 1, justifyContent: "flex-end" }}
           source={require("../../../assets/images/background.png")}
-          // source={{
-          //   uri: "../../assets/images/thd01.jpg",
-          // }}
         >
           {articles ? (
             <RegulationExtendableComp />

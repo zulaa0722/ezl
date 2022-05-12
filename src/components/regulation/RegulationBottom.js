@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   FlatList,
+  Picker,
 } from "react-native";
 import {
   selectArticles,
@@ -15,8 +16,9 @@ import ArticleChildren from "./ArticleChildren";
 const RegulationBottom = (props) => {
   const [articles, setArticles] = useState([]);
   const [areYouHaveChild, setAreYouHaveChild] = useState(false);
-  const [isClick, setIsClick] = useState(1);
+  // const [isClick, setIsClick] = useState(1);
   const [getClickParentID, setGetClickParentID] = useState("");
+  // const [selectedValue, setselectedValue] = useState("Java");
 
   useEffect(() => {
     selectArticlesChildren(props.ids)
@@ -30,9 +32,9 @@ const RegulationBottom = (props) => {
 
   const subItems = (clickParentID) => {
     setGetClickParentID(clickParentID);
-    {
-      isClick == 0 ? setIsClick(1) : setIsClick(0);
-    }
+    // {
+    //   isClick == 0 ? setIsClick(1) : setIsClick(0);
+    // }
   };
 
   const hiddenSubChildren = (childID) => {
@@ -59,7 +61,7 @@ const RegulationBottom = (props) => {
                 onPress={() => {
                   subItems(data.item.id);
                 }}
-                style={myStyle.btnStyle}
+                style={areYouHaveChild ? myStyle.btnStyle : myStyle.btnStyle}
               >
                 <View style={myStyle.wrapper}>
                   <Text style={myStyle.text}>
