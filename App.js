@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import RegulationHome from "./src/screens/regulation/RegulationHome";
 import HomeScreen from "./src/screens/Home";
-import { fetchData, articlesChildren } from "./src/helpers/fetchData";
+import { fetchData } from "./src/helpers/fetchData";
 import LoginScreen from "./src/screens/Login";
 import * as dbRegulation from "./src/helpers/dbRegulation";
 import RegulationReading from "./src/screens/regulation/RegulationReadingScreen";
@@ -63,15 +63,15 @@ export default function App() {
         console.log(err);
       });
 
-    articlesChildren("/get/discipline/article", "")
-      .then((res) => {
-        // console.log(res);
-        const insertArticlesChildrens =
-          dbRegulation.insertArticlesChildren(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // articlesChildren("/get/discipline/article", "")
+    //   .then((res) => {
+    //     // console.log(res);
+    //     const insertArticlesChildrens =
+    //       dbRegulation.insertArticlesChildren(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   }, []);
 
   const loadMilitaryRuleData = async () => {
