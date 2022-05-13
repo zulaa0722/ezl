@@ -58,11 +58,13 @@ const RegulationHome = (props) => {
           style={{ flex: 1, justifyContent: "flex-end" }}
           source={require("../../../assets/images/background.png")}
         >
-          {articles ? (
-            <RegulationExtendableComp />
+          {/* <RegulationExtendableComp /> */}
+          {/* {articles ? (
+            <Text>dkljfghdfg</Text>
           ) : (
             <RegulationBottom ids={ids} navigateTo={navigateTo} />
-          )}
+          )} */}
+          {lawTypes && <RegulationBottom ids={ids} navigateTo={navigateTo} />}
         </ImageBackground>
       </View>
     </SafeAreaView>
