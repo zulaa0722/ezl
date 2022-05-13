@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
   flatlist: {},
   topView: {
-    flex: 0.2,
+    flex: 0.15,
     // justifyContent: "center",
     // alignItems: "center",
     // padding: 10,
@@ -93,10 +93,10 @@ const styles = StyleSheet.create({
     //
   },
   bottomView: {
-    flex: 0.8,
+    flex: 0.85,
     backgroundColor: "#51E1ED",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
     overflow: "hidden",
     // paddingTop: 5,
   },

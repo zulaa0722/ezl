@@ -1,4 +1,3 @@
-import Slider from "react-native-slider";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React, { useState, useEffect, useRef } from "react";
 import { Audio } from "expo-av";
