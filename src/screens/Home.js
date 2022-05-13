@@ -129,7 +129,7 @@ const home_styles = StyleSheet.create({
     color: "#fff",
   },
   line: {
-    width: 1,
+    width: 2,
     backgroundColor: "#fff",
     marginRight: 3,
     height: "100%",

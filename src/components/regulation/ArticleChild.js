@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import React from "react";
 
 const ArticleChild = (props) => {
@@ -16,7 +16,7 @@ const ArticleChild = (props) => {
         >
           <View style={styles.wrapperElse}>
             <Text style={styles.text}>
-              {props.data.item.articleName} {props.data.item.parentID}
+              {props.data.item.articleName}
             </Text>
           </View>
         </TouchableOpacity>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginLeft: 40,
     marginHorizontal: 10,
-    backgroundColor: "green",
+    backgroundColor: "#C8DDF2",
     borderRadius: 10,
   },
   text: {
@@ -47,4 +47,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     // backgroundColor: "#fff",
   },
+  image: {
+    flex: 1,
+
+  }
 });

@@ -20,7 +20,7 @@ const ParentItem = (props) => {
           style={styles.icon}
         />
         <Text style={styles.text} key={props.item.id}>
-          {props.item.titleName}
+          {props.item.titleName} 
         </Text>
       </TouchableOpacity>
       {showChild && (
