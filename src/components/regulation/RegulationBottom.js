@@ -58,7 +58,7 @@ const ExpandableComponent = ({ navigateTo, item, onClickFunction }) => {
         }}
       >
         {/*Content under the header of the Expandable List Item*/}
-        {item.children != null &&
+        {item.childrenCount > 0 &&
           item.children.map((item, key) => (
             <TouchableOpacity
               key={key}
@@ -143,7 +143,7 @@ const RegulationBottom = (props) => {
             <ExpandableComponent
               key={item.id}
               onClickFunction={() => {
-                if (item.children.length == 0) {
+                if (item.childrenCount == 0) {
                   props.navigateTo(item.id);
                 } else {
                   updateLayout(key);

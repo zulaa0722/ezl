@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useState, useEffect } from "react";
-import { WebView } from "react-native-webview";
+import HTMLView from "react-native-htmlview";
 import axios from "../../axios/axios-purchase";
 import {
   insertPurchase,
@@ -17,6 +17,7 @@ import {
   selectPurchaseIsMe,
 } from "../../helpers/dbPurchase";
 
+const regex = /<br|\n|\r\s*\\?>/g;
 const LoginStart = (props) => {
   const [number, setNumber] = useState("");
   const [err, setErr] = useState(null);
@@ -152,14 +153,11 @@ const LoginStart = (props) => {
           </View>
           <View style={styles.inputRow}>
             <ScrollView style={styles.txtScrollView}>
-              <WebView
-                numberOfLines={1}
-                adjustsFontSizeToFit
-                style={styles.webInstr}
-                originWhitelist={["*"]}
-                source={{
-                  html: "" + instruction,
-                }}
+              <HTMLView
+                value={
+                  "<div>" + instruction.trim().replace(regex, "") + "</div>"
+                }
+                stylesheet={styles}
               />
             </ScrollView>
           </View>
@@ -175,16 +173,11 @@ export default LoginStart;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // alignSelf: "center",
-    // backgroundColor: "transparent",
-    // backgroundColor: "grey",
-    // backgroundColor: "transparent",
   },
   bgImage: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    // justifyContent: "center",
   },
   image: {
     width: 55,
@@ -193,14 +186,11 @@ const styles = StyleSheet.create({
   logoSide: {
     flex: 1,
     flexDirection: "row",
-    // backgroundColor: "green",
     alignItems: "center",
     justifyContent: "center",
   },
   inputSide: {
     flex: 1,
-    // flexDirection: "row",
-    // backgroundColor: "grey",
   },
   buttonSide: {
     flex: 1,
@@ -209,24 +199,16 @@ const styles = StyleSheet.create({
     color: "#fff012",
     fontSize: 24,
     fontWeight: "bold",
-    // textAlign: "center",
-    // textAlignVertical: "center",
   },
   input: {
     height: 40,
     width: "60%",
-    // width: "90%",
-    // margin: 12,
     marginLeft: 12,
-    // borderWidth: 2,
-    // borderBottomWidth: 2,
     padding: 10,
-    // borderRadius: 5,
     borderTopLeftRadius: 5,
     borderBottomLeftRadius: 5,
-    // borderColor: "#fff",
     color: "#30396f",
-    backgroundColor: "#fff012",
+    backgroundColor: "#fff",
   },
   inputRow: {
     flexDirection: "row",
@@ -241,27 +223,21 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     marginRight: 20,
     paddingRight: 10,
-    // opacity: 0.6,
     borderTopLeftRadius: 5,
     borderTopRightRadius: 5,
     color: "#000000",
-    // borderRadius: 5,
   },
   txtScrollView: {
-    // position: "absolute",
     width: "90%",
-    backgroundColor: "#fff012",
+    backgroundColor: "#fff",
     paddingLeft: 10,
     paddingTop: 5,
     marginLeft: 12,
     marginRight: 20,
     padding: 10,
-    // opacity: 0.7,
-    // borderRadius: 5,
     borderTopRightRadius: 5,
     borderBottomRightRadius: 5,
     borderBottomLeftRadius: 5,
-
     borderBottomColor: "#fff",
     borderBottomWidth: 2,
   },
@@ -269,7 +245,6 @@ const styles = StyleSheet.create({
     width: "30%",
     height: 40,
     backgroundColor: "green",
-    // borderBottomWidth: 2,
     padding: 10,
     borderTopRightRadius: 5,
     borderBottomRightRadius: 5,
@@ -287,12 +262,5 @@ const styles = StyleSheet.create({
   },
   errMsg: {
     color: "red",
-  },
-  webInstr: {
-    padding: 100,
-    color: "black",
-    fontSize: 28,
-    fontWeight: "bold",
-    borderRadius: 5,
   },
 });
